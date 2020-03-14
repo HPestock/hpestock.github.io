@@ -243,15 +243,34 @@ BLOCK.SPONGE = {
 	texture: function( world, lightmap, lit, x, y, z, dir ) { return [ 0/16, 3/16, 1/16, 4/16 ]; }
 };
 
-// Bed
-BLOCK.BED = {
+// BedTop
+BLOCK.BEDTOP = {
 	id: 19,
 	spawnable: true,
 	transparent: false,
 	selflit: false,
 	gravity: false,
 	fluid: false,
-	texture: function( world, lightmap, lit, x, y, z, dir ) { return [ 6/16, 8/16, 8/16, 9/16 ]; }
+	texture: function( world, lightmap, lit, x, y, z, dir )
+	{
+		if ( dir == DIRECTION.UP )
+			return [ 7/16, 8/16, 8/16, 9/16 ];
+		else if ( dir == DIRECTION.DOWN ) 
+			return [ 6/16, 8/16, 7/16, 9/16 ];
+		else
+			return [ 6/16, 8/16, 7/16, 9/16 ];
+	}
+};
+
+// Bed
+BLOCK.BED = {
+	id: 20,
+	spawnable: true,
+	transparent: false,
+	selflit: false,
+	gravity: false,
+	fluid: false,
+	texture: function( world, lightmap, lit, x, y, z, dir ) { return [ 6/16, 8/16, 7/16, 9/16 ]; }
 };
 
 // fromId( id )
