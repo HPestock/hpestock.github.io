@@ -17,7 +17,7 @@ var tri1vert = [
 	{ x: 10, y: 0 },
 	{ x: 10, y: 10 },
 ];
-var triangle = Bodies.fromVertices(10, 15, vertices);
+var triangle = Bodies.fromVertices(10, 15, tri1vert);
 
 var ground;
 
