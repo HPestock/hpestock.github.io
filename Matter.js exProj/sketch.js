@@ -13,9 +13,9 @@ var staticcir = [];
 var box1sz = 20;
 var cir1sz = 10;
 var tri1vert = [
-	{ x: 0, y: 0 },
-	{ x: 10, y: 0 },
-	{ x: 10, y: 10 },
+	{ x: 20, y: 20 },
+	{ x: 40, y: 20 },
+	{ x: 40, y: 40 },
 ];
 var triangle = Bodies.fromVertices(10, 15, tri1vert);
 
