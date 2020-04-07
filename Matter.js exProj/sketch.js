@@ -12,6 +12,12 @@ var circles = [];
 var staticcir = [];
 var box1sz = 20;
 var cir1sz = 10;
+var tri1vert = [
+	{ x: 0, y: 0 },
+	{ x: 10, y: 0 },
+	{ x: 10, y: 10 },
+];
+var triangle = Bodies.fromVertices(10, 15, vertices);
 
 var ground;
 
@@ -28,6 +34,7 @@ function setup() {
   }
   ground = Bodies.rectangle(480, height - 30, width, 10, options);
   World.add(world, ground);
+  World.add(world, triangle);
 }
 
 function mouseDragged() {
