@@ -1,4 +1,4 @@
-var gridsz = 1400;
+var gridsz = 1050;
 var mode = 1;
 var sz = 23;
 var x = 0;
