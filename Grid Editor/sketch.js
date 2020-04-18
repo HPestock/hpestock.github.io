@@ -346,13 +346,13 @@ function draw() {
 	}
 	fill(255);
 	for(i = 0; i < 2; i++) {
-		for(j = 0; j < 3; j++) {
-			y = i;
-			x = pos[i][j];
-			x = (gridsz/sz)*x;
-			y = (gridsz/sz)*y;
-			rect(x, y, (gridsz/sz), (gridsz/sz));
-		}
+		//for(j = 0; j < 3; j++) {
+		//	y = i;
+		//	x = pos[i][j];
+		//	x = (gridsz/sz)*x;
+		//	y = (gridsz/sz)*y;
+		//	rect(x, y, (gridsz/sz), (gridsz/sz));
+		//}
 	}
 	for(i = 0; i < sz; i++) {
 		for(j = 0; j < sz; j++) {
