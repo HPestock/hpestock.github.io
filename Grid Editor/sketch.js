@@ -79,7 +79,7 @@ var pos2x = 2;
 var pos2y = 1;
 var pos = [
 	["0", "0"],
-	["2", "2"]
+	["0", "0"]
 ];
 var DropType = 1;
 
