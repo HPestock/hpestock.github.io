@@ -77,10 +77,10 @@ var posx = 2;
 var posy = 1;
 var pos2x = 2;
 var pos2y = 1;
-var pos = [
-	["0", "0"],
-	["0", "0"]
-];
+// var pos = [
+// 	["0", "0"],
+// 	["0", "0"]
+// ];
 var DropType = 1;
 
 function setup() {
