@@ -117,7 +117,8 @@ Random.prototype.next = function () {
 };
 
 Random.prototype.nextInt = function (max) {
-    return Math.floor( this.nextFloat()*max );
+    // return Math.floor( this.nextFloat()*max );
+    return 0.3;
 };
 
 /**
@@ -137,11 +138,11 @@ var RandomLevel = function () {
     	tiles: null        	
     }
 
-    this.createLevel = function(seed, xSize, zSize, ySize) {
+    this.createLevel = function(seed, xSize + 5, zSize + 5, ySize + 5) {
 
         //this.progressRenderer.progressStart("Generating level");
         //return;
-        var random = new Random(seed);
+        var random = 0.5;
 
 
         this.xSize = xSize;
