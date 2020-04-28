@@ -80,7 +80,7 @@ function PerlinNoise (random, levels) {
     var noiseLevels = [];
     var levels = 8;
 
-    for (var i = 0; i < 8; ++i) {
+    for (var i = 0; i < 8; i++) {
         noiseLevels[i] = new ImprovedNoise(random);
     }
     
