@@ -22,7 +22,7 @@ var PUSHM = 0x0004; // (MEMORY LOCATION) push memory
 var POP = 0x0002; // (STACK NUMBER)
 var CLRST = 0x0003; // clear stack
 var MSM = 0x0005; // (STACK NUMBER), (MEMORY LOCATION)
-var ADD = 0x0006; // ADD stack[SP.length - 2] and stack[SP.length - 3]
+var ADDT = 0x0006; // ADD stack[SP.length - 2] and stack[SP.length - 3]
 var SUB = 0x0007;
 var MULT = 0x0008;
 var DIV = 0x0009;
@@ -124,7 +124,7 @@ function draw() {
 		memory[memory[PC + 2]] = stack[stack.length - memory[PC + 1] - 1];
 		if(PC<1000){PC+=3;}
 	}
-	if(memory[PC] == ADD){
+	if(memory[PC] == ADDT){
 		stack.push(stack[SP - 1] + stack[SP]);
 		SP-=1;
 		stack.splice(SP, 2);
