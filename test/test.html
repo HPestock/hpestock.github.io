@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
+  </head>
+  <body>
+    <div id='vrview' style='width:100%;height:600px;margin-bottom:20px;'></div>
+    <script>
+      var vrView;
+      window.addEventListener('load', onVrViewLoad);
+
+      function onVrViewLoad() {
+        try {
+          // Selector '#vrview' finds element with id 'vrview'.
+          vrView = new VRView.Player('#vrview', {
+            image: '<path-to-image>',
+            width: '100%',
+            height: '600px',
+            is_stereo: true
+          });
+        } catch (err) {
+          console.error(err.message);
+        }
+      }
+    </script>
+  </body>
+</html>
