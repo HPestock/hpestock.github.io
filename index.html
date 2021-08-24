@@ -10,37 +10,7 @@
   <script>
     var h=0;
     const m=5;
-    function s(){
-      for(var i=0;i<m;i++){
-        document.getElementById("c"+(1+i)).style.display = "none";
-      }
-    }
-    function a(f) {
-  var b = document.getElementById(f);
-  if (b.style.display === "none") {
-    if(b.nodeName === "BUTTON"){
-      b.style.display = "block";
-    }else{
-      //b.style.display = "inline";
-    }
-  } else {
-    b.style.display = "none";
-  }
-}
-    function d(){
-      e=new Date();
-      if(parseInt(prompt())===(e.getDay()*e.getDate()*e.getFullYear()%847892)){
-        for(var i=0;i<m;i++){
-          a("c"+(1+i));
-        }
-      }
-    }
-    function g(){
-      h++;
-      if(h>2){
-        d();
-      }
-    }
+    function s(){for(var e=0;e<m;e++)document.getElementById("c"+(1+e)).style.display="none"}function a(e){var n=document.getElementById(e);"none"===n.style.display?"BUTTON"===n.nodeName&&(n.style.display="block"):n.style.display="none"}function d(){if(e=new Date,parseInt(prompt())===e.getDay()*e.getDate()*e.getFullYear()%847892)for(var n=0;n<m;n++)a("c"+(1+n))}function g(){h++,h>2&&d()}
     </script>
 </head>
 
