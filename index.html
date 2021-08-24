@@ -9,8 +9,10 @@
   <script>
     var h=0;
     const m=5;
-    for(var i=0;i<m;i++){
-      document.getElementById("c"+(1+i)).style.display = "none";
+    function s(){
+      for(var i=0;i<m;i++){
+        document.getElementById("c"+(1+i)).style.display = "none";
+      }
     }
     function a(f) {
   var b = document.getElementById(f);
@@ -48,4 +50,5 @@
 <button id="c3"><a href="/CS-bVMgithubdemo/index.html">Chris' Stack-based VM</a></button> <br id="c4">
 <button><a href="/NIMCat - package.html">Train your cat to play NIM</a></button> <br>
 <button id="c5"><a href="iwbtc-menu.html">I Wanna Be Thy Copy TAS Tool</a></button>
+  <script>s();</script>
 </body>
