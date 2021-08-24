@@ -2,15 +2,33 @@
 <h2>HPestock's repository website</h2>
 <p>Enjoy! </p>
 <br>
+  <script>
+    document.getElementById("c").style.display="block";
+    function a() {
+  var b = document.getElementById("c");
+  if (b.style.display === "none") {
+    b.style.display = "block";
+  } else {
+    b.style.display = "none";
+  }
+}
+    function d(){
+      e=new Date();
+      if(parseInt(prompt())===(e.getDay()*e.getDate()*e.getFullYear()%847892)){
+        a();
+      }
+    }
+    </script>
 </head>
 
 <body>
+<button><a href="test.html">Random Int Generator [WIP!]</a></button> <br>
 <button><a href="/qDraw20/sketch001/index.html">qDraw20 (Open source until sale available)</a></button> <br>
 <button><a href="/sketch001/index.html">Draw 2020 (Open source)</a></button> <br>
-<button><a href="/minecraftClassic-master/index.html">(U)MCC Backdoor</a></button> <br>
+<button id="c"><a href="/minecraftClassic-master/index.html">(U)MCC Backdoor</a></button> <br>
 <button><a href="/Matter.js exProj/index.html">My matter.js example project</a></button> <br>
 <button><a href="/Grid Editor/index.html">Grid Editor 2.0</a></button> <br>
-<button><a href="/CS-bVMgithubdemo/index.html">Chris' Stack-based VM</a></button> <br>
+<button id="c"><a href="/CS-bVMgithubdemo/index.html">Chris' Stack-based VM</a></button> <br>
 <button><a href="/NIMCat - package.html">Train your cat to play NIM</a></button> <br>
-<button><a href="iwbtc-menu.html">I Wanna Be Thy Copy TAS Tool</a></button>
+<button id="c"><a href="iwbtc-menu.html">I Wanna Be Thy Copy TAS Tool</a></button>
 </body>
