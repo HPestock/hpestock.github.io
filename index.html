@@ -2,9 +2,16 @@
 <h2>HPestock's repository website</h2>
 <p>Enjoy! </p>
 <br>
+  <style>
+    button{ 
+    }
+    </style>
   <script>
     var h=0;
-    document.getElementById("c").style.display="block";
+    const m=3;
+    for(var i=0;i<m;i++){
+      document.getElementById("c"+(1+i)).style.display = "none";
+    }
     function a(f) {
   var b = document.getElementById(f);
   if (b.style.display === "none") {
