@@ -17,7 +17,11 @@
     function a(f) {
   var b = document.getElementById(f);
   if (b.style.display === "none") {
-    b.style.display = "block";
+    if(b.nodeName === "BUTTON"){
+      b.style.display = "block";
+    }else{
+      b.style.display = "inline";
+    }
   } else {
     b.style.display = "none";
   }
