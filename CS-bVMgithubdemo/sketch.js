@@ -46,7 +46,7 @@ function setup() {
 	createCanvas(w,h);
 	valset();
 	//memory[2] = 99;
-	program = eval('prompt("enter semi-/compiled program");');
+	program = prompt("enter semi-/compiled program");
 	program = program.split(', ');
 	for(var i=0; i < program.length; i++){
 		program[i] = eval(program[i]);
