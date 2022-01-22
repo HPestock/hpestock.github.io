@@ -1,0 +1,1 @@
+alias testaliaspaget var1 var2 ":_X_APIRUNCMD('store paget_return %var1%%var2%');_X_APIRUNCMD('print_val paget_return');"
