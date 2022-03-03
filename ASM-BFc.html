@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<head>
+<title>ASM-BF Compiler v0</title>
+</head>
+<body>
+
+<textarea id="inputarea">
+
+</textarea>
+<textarea id="outputarea">
+
+</textarea>
+<br>
+<button type="button" onclick="runfrtx();">Compile</button>
+
+<script>
+
+var cmds = [
+		["test a b","{a}>{b}+"],
+		["copy a b d","+[-<+]-<{a}>[[-<+]-<{d}>++[-<+]-<{a}>]+[-<+]-<{d}>[[-<+]-<{a}>++[-<+]-<{b}>++[-<+]-<{d}>]"],
+		["setup m",">-<{m}>-<"],
+		["MARK","MARK"],
+		["set l n","+[-<+]-<{l}>[-]{n}+"],
+		["mvp l","+[-<+]-<{l}>"],
+		["ifnz l","+[-<+]-<{l}>["],
+		["ifnzp","["],
+		["endif","]"],
+		["endifl","+[-<+]-<]"],
+		["endifr","+[->+]->]"],
+		["add l a","+[-<+]-<{l}>{a}+"],
+		["subt l a","+[-<+]-<{l}>{a}-"],
+		["addp a","{a}+"],
+		["subtp a","{a}-"],
+		["outp","."],
+		["inp",","],
+		["out l","+[-<+]-<{l}>."],
+		["in l","+[-<+]-<{l}>,"],
+		["setp n","[-]{n}+"],
+		["setpn n","[-]{n}-"],
+		["setn l n","+[-<+]-<{l}>[-]{n}-"],
+		["SPACE l","+[-<+]-<{l}>[-]++++++++++++++++++++++++++++++++."],
+		["NEWLINE l","+[-<+]-<{l}>[-]++++++++++."],
+		["SPACEp","[-]++++++++++++++++++++++++++++++++."],
+		["NEWLINEp","[-]++++++++++."],
+		["ifz l d c","+[-<+]-<{l}>[[-<+]-<{d}>++[-<+]-<{l}>]+[-<+]-<{d}>[[-<+]-<{l}>++[-<+]-<{c}>++[-<+]-<{d}>]+[-<+]-<{d}>[-]++[-<+]-<{c}>[-+[-<+]-<{d}>-+[-<+]-<{c}>]+[-<+]-<{d}>["],
+		["cut a b","+[-<+]-<{a}>[[-<+]-<{b}>++[-<+]-<{a}>]"],
+		["test2 l","+[-<+]-<{l}>,."]
+		];
+		
+for(var I=0;I<cmds.length;I++){
+	cmds[I][0]=sbws(cmds[I][0]);
+}
+
+var progin = "";
+
+function runfrtx(){
+	progin = document.getElementById("inputarea").value;
+	document.getElementById("outputarea").value = runcompiler(progin,cmds);
+}
+
+//var progin = "MARK\nsetup 19\nset 5 10\ncopy 5 6 7";
+
+//alert(runcompiler(progin,cmds));
+
+function runcompiler(prog,cmdl){
+	var progl = rllc(prog);
+	//x!="" will work for null cases
+	var outp = "";
+	for(var i=0;i<progl.length;i++){
+		if(progl[i]!=""){
+			//outp+=retaddcmd(cmdl,progl[i]);
+			//alert(progl[i][0]);
+			if(progl[i][0]==="write"){
+				//do write cmd
+				//write l s
+				outp+="+[-<+]-<";
+				for(var cl=0;cl<parseInt(progl[i][1]);cl++){
+					outp+=">";
+				}
+				for(cl=0;cl<progl[i][2].length;cl++){
+					//charCodeAt()
+					outp+="[-]";
+					for(var cl2=0;cl2<progl[i][2].charAt(cl).charCodeAt();cl2++){
+						outp+="+";
+					}
+					//alert('A'.charCodeAt());
+					outp+=".";
+				}
+			}else if(progl[i][0]==="writep"){
+				//placeholder
+				//writep s
+				for(cl=0;cl<progl[i][1].length;cl++){
+					//charCodeAt()
+					outp+="[-]";
+					for(var cl2=0;cl2<progl[i][1].charAt(cl).charCodeAt();cl2++){
+						outp+="+";
+					}
+					//alert('A'.charCodeAt());
+					outp+=".";
+				}
+			}else{
+				outp+=retaddcmd(cmdl,progl[i]);
+			}
+		}
+	}
+	return outp;
+}
+
+//alert(retaddcmd(cmds,["test","3","2"]));
+
+function retaddcmd(cmdl,cmd){
+	//loop through cmdl, sbws i, check [0] match
+	//var cmdlt;
+	var ch=-1;
+	for(var i=0;i<cmdl.length;i++){
+		if(cmdl[i][0][0]===cmd[0]){
+			ch=cmdl[i];
+		}
+	}
+	if(ch===-1){
+		return false;
+	}
+	//return ch;
+    var amtf = true;
+    var next = 1;
+    var macro = "";
+    var out = "";
+    var t;
+    for(i=0;i<ch[1].length;i++){
+      //console.log(ch[1].charAt(i));
+      //{: amtf=false;macro="";
+      //}: amtf=true;next=parseInt(fc(ch[0],macro,cmd));
+      // else
+      //amtf===true: out+=ch[1].charAt(i);
+      //amtf===false: macro+=ch[1].charAt(i);
+      
+      t = ch[1].charAt(i);
+      //console.log(t);
+      if(t === "{"){
+        amtf=false;macro="";
+        //console.log("**{");
+      }else if(t === "}"){
+        amtf=true;next=parseInt(fc(ch[0],macro,cmd));
+        //console.log("**}");
+      }else if(amtf){
+        out=out+ti(t,parseInt(next));
+        next=1;
+        //console.log(next);
+        //console.log(t);
+        //console.log(ti(next,t));
+      }else{
+        macro=macro+t;
+        //console.log("+"+t);
+      }
+    }
+    return out;
+}
+
+function ti(s,t){
+  var n = "";
+  for(var i=0;i<t;i++){
+    n=n+s;
+  }
+  return n;
+}
+
+function fc(chl,macro,cmd){
+  for(var i=1;i<chl.length;i++){
+    if(macro === chl[i]){
+      return cmd[i];
+    }
+  }
+  return false;
+}
+
+function rllc(s){
+  s = s.split("\n");
+  for(var i=0;i<s.length;i++){
+    s[i]=s[i].split(" ");
+    s[i]=s[i].filter(function(val,ind,arr){return val!=""});
+  }
+  return s;
+}
+
+function sbws(s){
+	s=s.split(" ");
+	s=s.filter(function(val,ind,arr){return val!=""});
+	return s;
+}
+</script>
+</body>
