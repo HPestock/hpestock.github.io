@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+
+<button><a href="index.html">Back</a></button>
+<p>
+  Controls: <br>
+  <br>
+  R,Y,T,G,F,H,I,K,U,O,J,L -- Control screen rotation<br>
+  <br>
+  W -- Move forward<br>
+  A -- Move left<br>
+  S -- Move backward<br>
+  D -- Move right<br>
+  Q -- Move w-<br>
+  E -- Move w+<br>
+  [Space] -- Jump<br>
+  <br>
+  The green cursor appears as a block and indicated where a block will be placed; The following controls move the cursor, note that these remain bounded by their original axis: <br>
+  <br>
+  Up Arrow -- y-<br>
+  Down Arrow -- y+<br>
+  Left Arrow -- x-<br>
+  Right Arrow -- x+<br>
+  ; -- z+<br>
+  . -- z-<br>
+  , -- w-<br>
+  / -- w+<br>
+  <br>
+  Mouse controls can be changed by pressing 3, 4, 5, or 2<br>
+  </p>
+  Saving: <br>
+  World saving is not fully supported, and may be considered somewhat difficult. <br>
+  To save a world, press the ~ button to open the console, then enter the command<br>
+    CLIPBOARDSTR = worldSave();<br>
+  Then take note of the four ordered values appearing in a prompt, if you are using the default world size you may disregard these numbers. <br>
+  Next click "Ok" to dismiss the dialog box, then hold Shift and B to copy the world data to your clipboard. <br>
+  The world data is saved in the clipboard, you may save it in a file. <br>
+  Note that this method has only been officially tested in Google Chrome. <br>
+<br>
+  Loading: <br>
+  World loading is not fully supported, and may be considered somewhat difficult. <br>
+  To load a world, first copy your world data to your clipboard, then open the 4Dcmcc FPS Port and press Shift and N simultaniously. <br>
+  If a dialog box appears, click "Allow" to let the page copy what is on your clipboard. <br>
+  Next press the ~ button to open the console, then enter the command<br>
+    eval('game = '+CLIPBOARDSTR);<br>
+  Note that this method has only been officially tested in Google Chrome. <br>
+<br>
+  Opening the console by pressing ~ and entering the command<br>
+    loadtestworld();<br>
+  will load a premade world for testing. <br>
