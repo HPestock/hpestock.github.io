@@ -12,6 +12,8 @@ var video = "";
 var clrvideo = "";
 var blkvideo = "";
 var videomode="buffer";
+var backgroundcol = [0,0,0];
+var textcol = [255,255,255];
 
 var machine_running = true;
 
@@ -562,8 +564,8 @@ function setdocall(v){
   }
   //docbody.editAsText().setText(brkvid);
   //docbody.editAsText().setFontFamily("Courier");
-  background(0);
-  fill(255);
+  background(backgroundcol);
+  fill(textcol);
   textSize('20');
   textAlign(LEFT,TOP);
   textFont('Courier');
