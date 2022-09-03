@@ -17,13 +17,17 @@ var textcol = [255,255,255];
 
 var machine_running = true;
 
-var files = [['boot/autoexec.sh','rjef /quickalias/setup.ef\\n'],['boot/autoexec.ef','console.log(\'AE UNCHANGED\');runcmdscript(\"boot/autoexec.sh\");textbufferpre=\"CSDOS b0.34 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\nIf the screen is frozen, press a shift key momentarily. \\n\";'],['/bin/version.dat','CSDOS b0.34 -- development build 6, not for public use'],['/bin/aliaslist.dat',';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!'],['/bin/help.txt','lsdir - list the contents of the current directory\ncd [dir] - changes the current directory to [dir]\nshutdown - use \'shutdown --\' to halt CSDOS\nhelp - display this dialog from /bin/help.txt\ncat [dir] - display the contents of the file [dir] in the console\nclr - clear the screen\nrjef [dir] - run the file [dir] in JavaScript from processcmd() using eval()\nejs [code] - run [code] in eval() from processcmd(), note that all blocks of spaces will be changed into a single space\nalias [aliasname] [aliascontents] - add an alias, typing [aliasname] as a command will run [aliascontents] through processcmd() with any arguments/parameters from after [aliasname] appended to the str_input for processcmd()\nreadext - open a prompt that will write contents to ext/input\necho [text] - display [text] in console\nver - display version info\n'],['/bin/test.ef','function _06341_test(f){textbufferpre+=f;} _06341_test(cmdinpt[2]+\'\\n\')'],['/bin/ejs','let p=[...cmdinpt];p.splice(0,2);eval(p.join(\' \'));'],['/bin/ejss','let p=[...cmdinpt];p.splice(0,1);eval(p.join(\' \'));'],['/bin/test.sh','clr\nrjef boot/autoexec.ef\nhelp'],['/bin/bac','runcmdscript(dirreltoab(cmdinpt[2]));'],['/quickalias/qa.ef','retcmd=\"rjef /quickalias/qa.ef\";if(retvar===-1){retvar=0;}if(retvar===0){textbuffer=\"Enter alias name: \"+\"\\n\"+keyinput+\"_\";if(ckeydo){if(ckey===\"Enter\"){placecheapfile(\"/quickalias/\",\"nm.tmp\",keyinput);keyinput=\"\";retvar=1;}else if(ckey===\"Backspace\"){keyinput=keyinput.slice(0,keyinput.length-1);}ckeydo=false;}}else if(retvar===1){textbuffer=\"Enter alias contents: \"+\"\\n\"+keyinput+\"_\";if(ckeydo){if(ckey===\"Enter\"){var _tmp=retfile(\"/quickalias/nm.tmp\");processcmd(\"dealias \"+_tmp);processcmd(\"alias \"+_tmp+\" \"+keyinput);keyinput=\"\";retvar=-1;retcmd=\"\";}else if(ckey===\"Backspace\"){keyinput=keyinput.slice(0,keyinput.length-1);}ckeydo=false;}}'],['/quickalias/test.ef','textbuffer=\"Press any key to continue... \";if(retcmd!==\"rjef /quickalias/test.ef\"){keydown=false;video=clrvideo;placetextbuffer(textbuffer);}retcmd=\"rjef /quickalias/test.ef\";if(keydown){retcmd=\"\";keyinput=\"\"}'],['/quickalias/setup.ef','processcmd(\"alias qal rjef /quickalias/qa.ef\");console.log(\"QuickAlias Setup Complete. \");'],['/bin/restart.ef','video=\"\";workingdir=\"/\";keyinput = \"\";keydown = false;keymr = \'\';ckey = \"\";ckeydo = false;textbuffer = \"\";textbufferpre = \"\";textbufferlin = \"\";textbufferinpt = \"\";retcmd = \"\";retvar=-1;Main();'],['/bin/text.ef','var f = \"\";textbuffer = \"\";if(retvar===-1){	retvar=0;	retcmd=\"rjef /bin/text.ef\";	keyinput=\"\";}else{	f = retfile(\"/bin/text.tmp\");}if(retvar===0){	if(ckeydo){		ckeydo=false;		switch(ckey){			case \"Enter\":				if(keyinput.charAt(0)===\"+\"){					f+=keyinput.slice(1)+\"\\n\";					keyinput=\"\";				}else if(keyinput.charAt(0)===\"e\"){					retvar=1;					keyinput=\"\";				}else if(keyinput.charAt(0)===\"r\"){					f=f.slice(0,f.length-1);					retvar=1;					keyinput=\"\";				}else if(keyinput.charAt(0)===\"q\"){					retvar=-1;					retcmd=\"\";					keyinput=\"\";				}				break;			case \"Backspace\":				keyinput=keyinput.slice(0,keyinput.length-1);				break;		}	}}else if(retvar===1){	textbuffer+=\"Enter file name: \\n\";	if(ckeydo){		ckeydo=false;		switch(ckey){			case \"Enter\":				var fda = keyinput.split(\"/\");				var fdb = fda[fda.length-1];				fda.splice(fda.length-1,1);				placecheapfile(fda.join(\"/\")+\"/\",fdb,f);				retvar=-1;				retcmd=\"\";				keyinput=\"\";				break;			case \"Backspace\":				keyinput=keyinput.slice(0,keyinput.length-1);				break;		}	}}placecheapfile(\"/bin/\",\"text.tmp\",f);textbuffer += f+\"\\n\"+keyinput+\"_\";'],['/bin/copy.ef','var f = retfile(dirreltoab(cmdinpt[cmdinpt.length-2]));var to = dirreltoab(cmdinpt[cmdinpt.length-1]).split(\'/\');var tb = to[to.length-1];to.splice(to.length-1,1);placecheapfile(to.join(\"/\")+\"/\",tb,f);'],['/bin/del.ef','zerodirfile(dirreltoab(cmdinpt[cmdinpt.length-1]));'],['/bin/clz.ef','removefile(\"0\");'],['/bin/delcl.ef','removefile(dirreltoab(cmdinpt[cmdinpt.length-1]));'],['/system/userfile.dat','system\ninstall\nUser\nroot\n'],['ext/input','#NOFILE'],['/bin/cmd','textbufferlin = username+ccatat+machinename+ccatbar+workingdir+ccatend;    var inputln = keyinput;    if(ckeydo){      ckeydo=false;      if(ckey===\"Enter\"){        keyinput = \"\";        textbufferpre+=textbufferlin+textbufferinpt+inputln+\"\\n\";        processcmd(inputln);       }else if(ckey===\"Backspace\"||ckey===\"Delete\"){        keyinput = keyinput.slice(0,keyinput.length-1);      }    }      textbuffer=textbufferpre+textbufferlin+keyinput+ccatcur;']];// name/ tags, then file.ex
+var files = [['boot/autoexec.sh','rjef /quickalias/setup.ef\n'],['boot/autoexec.ef','console.log(\'AE UNCHANGED\');runcmdscript(\"boot/autoexec.sh\");textbufferpre=\"CSDOS b0.4 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n\";'],['/bin/version.dat','CSDOS b0.4 -- development build 8, not for public use'],['/bin/aliaslist.dat',';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!'],['/root/userdata.dat',''],['/bin/help.txt','lsdir - list the contents of the current directory\ncd [dir] - changes the current directory to [dir]\nshutdown - use \'shutdown --\' to halt CSDOS\nhelp - display this dialog from /bin/help.txt\ncat [dir] - display the contents of the file [dir] in the console\nclr - clear the screen\nrjef [dir] - run the file [dir] in JavaScript from processcmd() using eval()\nejs [code] - run [code] in eval() from processcmd(), note that all blocks of spaces will be changed into a single space\nalias [aliasname] [aliascontents] - add an alias, typing [aliasname] as a command will run [aliascontents] through processcmd() with any arguments/parameters from after [aliasname] appended to the str_input for processcmd()\nreadext - open a prompt that will write contents to ext/input\necho [text] - display [text] in console\nver - display version info\n'],['/bin/test.ef','function _06341_test(f){textbufferpre+=f;} _06341_test(cmdinpt[2]+\'\\n\')'],['/bin/ejs','let p=[...cmdinpt];p.splice(0,2);eval(p.join(\' \'));'],['/bin/ejss','let p=[...cmdinpt];p.splice(0,1);eval(p.join(\' \'));'],['/bin/test.sh','clr\nrjef boot/autoexec.ef\nhelp'],['/bin/bac','runcmdscript(dirreltoab(cmdinpt[2]));'],['/quickalias/qa.ef','retcmd=\"rjef /quickalias/qa.ef\";if(retvar===-1){retvar=0;}if(retvar===0){textbuffer=\"Enter alias name: \"+\"\\n\"+keyinput+\"_\";if(ckeydo){if(ckey===\"Enter\"){placecheapfile(\"/quickalias/\",\"nm.tmp\",keyinput);keyinput=\"\";retvar=1;}else if(ckey===\"Backspace\"){keyinput=keyinput.slice(0,keyinput.length-1);}ckeydo=false;}}else if(retvar===1){textbuffer=\"Enter alias contents: \"+\"\\n\"+keyinput+\"_\";if(ckeydo){if(ckey===\"Enter\"){var _tmp=retfile(\"/quickalias/nm.tmp\");processcmd(\"dealias \"+_tmp);processcmd(\"alias \"+_tmp+\" \"+keyinput);keyinput=\"\";retvar=-1;retcmd=\"\";}else if(ckey===\"Backspace\"){keyinput=keyinput.slice(0,keyinput.length-1);}ckeydo=false;}}'],['/quickalias/test.ef','textbuffer=\"Press any key to continue... \";if(retcmd!==\"rjef /quickalias/test.ef\"){keydown=false;video=clrvideo;placetextbuffer(textbuffer);}retcmd=\"rjef /quickalias/test.ef\";if(keydown){retcmd=\"\";keyinput=\"\"}'],['/quickalias/setup.ef','processcmd(\"alias qal rjef /quickalias/qa.ef\");console.log(\"QuickAlias Setup Complete. \");'],['/bin/restart.ef','if(get_sysvar(\"SYS_AUTOPERSIST\")){force_persist_cur_vars();}sysvars=[...sysvarsperr];sysvarnames=[...sysvarnamesperr];video=\"\";workingdir=\"/\";keyinput = \"\";keydown = false;keymr = \'\';ckey = \"\";ckeydo = false;textbuffer = \"\";textbufferpre = \"\";textbufferlin = \"\";textbufferinpt = \"\";retcmd = \"\";retvar=-1;Main();'],['/bin/text.ef','var f = \"\";textbuffer = \"\";if(retvar===-1){	retvar=0;	retcmd=\"rjef /bin/text.ef\";	keyinput=\"\";}else{	f = retfile(\"/bin/text.tmp\");}if(retvar===0){	if(ckeydo){		ckeydo=false;		switch(ckey){			case \"Enter\":				if(keyinput.charAt(0)===\"+\"){					f+=keyinput.slice(1)+\"\\n\";					keyinput=\"\";				}else if(keyinput.charAt(0)===\"e\"){					retvar=1;					keyinput=\"\";				}else if(keyinput.charAt(0)===\"r\"){					f=f.slice(0,f.length-1);					retvar=1;					keyinput=\"\";				}else if(keyinput.charAt(0)===\"q\"){					retvar=-1;					retcmd=\"\";					keyinput=\"\";				}				break;			case \"Backspace\":				keyinput=keyinput.slice(0,keyinput.length-1);				break;		}	}}else if(retvar===1){	textbuffer+=\"Enter file name: \\n\";	if(ckeydo){		ckeydo=false;		switch(ckey){			case \"Enter\":				var fda = keyinput.split(\"/\");				var fdb = fda[fda.length-1];				fda.splice(fda.length-1,1);				placecheapfile(fda.join(\"/\")+\"/\",fdb,f);				retvar=-1;				retcmd=\"\";				keyinput=\"\";				break;			case \"Backspace\":				keyinput=keyinput.slice(0,keyinput.length-1);				break;		}	}}placecheapfile(\"/bin/\",\"text.tmp\",f);textbuffer += f+\"\\n\"+keyinput+\"_\";'],['/bin/copy.ef','var f = retfile(dirreltoab(cmdinpt[cmdinpt.length-2]));var to = dirreltoab(cmdinpt[cmdinpt.length-1]).split(\'/\');var tb = to[to.length-1];to.splice(to.length-1,1);placecheapfile(to.join(\"/\")+\"/\",tb,f);'],['/bin/del.ef','zerodirfile(dirreltoab(cmdinpt[cmdinpt.length-1]));'],['/bin/clz.ef','removefile(\"0\");'],['/bin/delcl.ef','removefile(dirreltoab(cmdinpt[cmdinpt.length-1]));'],['/system/userfile.dat','system\ninstall\nUser\nroot\n'],['ext/input','#NOFILE'],['/bin/cmd','textbufferlin = username+ccatat+machinename+ccatbar+workingdir+ccatend;    var inputln = keyinput;    if(ckeydo){      ckeydo=false;      if(ckey===\"Enter\"){        keyinput = \"\";        textbufferpre+=textbufferlin+textbufferinpt+inputln+\"\\n\";        processcmd(inputln);       }else if(ckey===\"Backspace\"||ckey===\"Delete\"){        keyinput = keyinput.slice(0,keyinput.length-1);      }    }      textbuffer=textbufferpre+textbufferlin+keyinput+ccatcur;'],['/bin/alof.ef','alert(escform(retfile(dirreltoab(cmdinpt[2]))));'],['/bin/catof.ef','textbufferpre+=addlnbrks(escform(retfile(dirreltoab(cmdinpt[2]))))+\"\\n\"'],['/SSL10/setup.ef','processcmd(\"alias ssllock rjef /SSL10/lock.ef\");placecheapfile(\"/SSL10/\",\"header.dat\",\"Please enter your username and password: \\n\");placecheapfile(\"/SSL10/\",\"passwds.dat\",\"auto!autopasswordremovewhensetup!\");placecheapfile(\"boot/\",\"autoexec.sh\",retfile(\"boot/autoexec.sh\")+\"rjef /SSL10/lock.ef\\n\");textbufferpre+=\"Unset auto when setup is finished. \\n\";'],['/SSL10/unset.ef','if(retvar===-1){retvar=0;retcmd=\"rjef /SSL10/unset.ef\";keyinput=\"\";}if(retvar===0){textbuffer=\"Enter the user to unset: \\n\"+keyinput+\"_\";if(ckeydo&&ckey===\"Backspace\"){keyinput=keyinput.slice(0,keyinput.length-2);ckeydo=false;}else if(ckeydo&&ckey===\"Enter\"){var f=retfile(\"/SSL10/passwds.dat\").split(\"!\");for(var iii=0;iii<f.length;iii+=2){if(f[iii]===keyinput){f.splice(iii,2);iii-=2;}}f=f.join(\"!\");placecheapfile(\"/SSL10/\",\"passwds.dat\",f);retvar=-1;retcmd=\"\";keyinput=\"\";ckeydo=false;}}'],['/SSL10/set.ef','if(retvar===-1){retvar=0;retcmd=\"rjef /SSL10/set.ef\";keyinput=\"\";placecheapfile(\"/SSL10/\",\"temp.dat\",\"\");}var F = retfile(\"/SSL10/temp.dat\");if(retvar===0){textbuffer=\"Unset users before changing passwords. \\nEnter new username: \\n\"+keyinput+\"_\";if(ckeydo&&ckey===\"Backspace\"){keyinput=keyinput.slice(0,keyinput.length-2);ckeydo=false;}else if(ckeydo&&ckey===\"Enter\"){placecheapfile(\"/SSL10/\",\"temp.dat\",keyinput);retvar=1;keyinput=\"\";ckeydo=false;}}else if(retvar===1){textbuffer=\"Unset users before changing passwords. \\nEnter password: \\n\"+keyinput+\"_\";if(ckeydo&&ckey===\"Backspace\"){keyinput=keyinput.slice(0,keyinput.length-2);ckeydo=false;}else if(ckeydo&&ckey===\"Enter\"){placecheapfile(\"/SSL10/\",\"passwds.dat\",retfile(\"/SSL10/passwds.dat\")+F+\"!\"+keyinput+\"!\");retvar=-1;retcmd=\"\";keyinput=\"\";ckeydo=false;}}'],['/SSL10/lock.ef','if(retvar===-1){retvar=0;retcmd=\"rjef /SSL10/lock.ef\";placecheapfile(\"/SSL10/\",\"temp.dat\",\"\");keyinput=\"\";}var F = retfile(\"/SSL10/temp.dat\");if(retvar===0){textbuffer=retfile(\"/SSL10/header.dat\")+\"Username: \"+keyinput+\"_\";if(ckeydo){if(ckey===\"Backspace\"){keyinput=keyinput.slice(0,keyinput.length-2);}else if(ckey===\"Enter\"){placecheapfile(\"/SSL10/\",\"temp.dat\",keyinput);keyinput=\"\";retvar=1;}ckeydo=false;}}else if(retvar===1){textbuffer=retfile(\"/SSL10/header.dat\")+\"Username: \"+F+\"\\n\"+\"Password: _\";if(ckeydo){if(ckey===\"Backspace\"){keyinput=keyinput.slice(0,keyinput.length-2);}else if(ckey===\"Enter\"){var f=retfile(\"/SSL10/passwds.dat\").split(\"!\");var pass=false;for(var iii=0;iii<F.length;iii+=2){if(f[iii]===F&&f[iii+1]===keyinput){pass=true;}}if(pass){retvar=-1;retcmd=\"\";keyinput=\"\";}else{retvar=0;keyinput=\"\";}}ckeydo=false;}}'],['/SSL10/listpasswds.ef','processcmd(\"cat /SSL10/passwds.dat\");']];// name/ tags, then file.ex
 
-var sysvars = [0];
-var sysvarnames = ["SYS_TEST_RESV"];
+var sysvars = [0,true];
+var sysvarnames = ["SYS_TEST_RESV_OLDAUTO","SYS_AUTOPERSIST"];
+var sysvarsperr = [0,true];
+var sysvarnamesperr = ["SYS_TEST_RESV_RESTD","SYS_AUTOPERSIST"];
 
 var workingdir = "/";
 var wddom = "/";
+
+var homedir = "/system/";
 
 var keyinput = "";
 var keydown = false;
@@ -97,6 +101,34 @@ function force_rem_sysvar(n){
   }
 }
 
+function escform(s){
+  var reform = "";
+  for(var i=0;i<s.length;i++){
+    if(s.charAt(i)==="\n"){
+      reform+="\\n";
+    }else if(s.charAt(i)==="\b"){
+      reform+="\\b";
+    }else if(s.charAt(i)==="\f"){
+      reform+="\\f";
+    }else if(s.charAt(i)==="\r"){
+      reform+="\\r";
+    }else if(s.charAt(i)==="\t"){
+      reform+="\\t";
+    }else if(s.charAt(i)==="\v"){
+      reform+="\\v";
+    }else if(s.charAt(i)==="\'"){
+      reform+="\\\'";
+    }else if(s.charAt(i)==="\""){
+      reform+="\\\"";
+    }else if(s.charAt(i)==="\\"){
+      reform+="\\\\";
+    }else{
+      reform+=s.charAt(i);
+    }
+  }
+  return reform;
+}
+
 function get_blank_screen(w,h,s){
   var out = "";
   var preout = "";
@@ -109,6 +141,13 @@ function get_blank_screen(w,h,s){
     out+=preout;
   }
   return out;
+}
+
+//add respective perr var funcs
+
+function force_persist_cur_vars(){
+  sysvarsperr=[...sysvars];
+  sysvarnamesperr=[...sysvarnames];
 }
 
 function MainOnOpen(){
@@ -176,12 +215,14 @@ function MainLoop(){
       processcmd(retcmd);
     }
     
-    if(keydown){
-      if(videomode==="buffer"){
+    //if(keydown){
+      if(videomode==="buffer"&&(video!==videold)){
         video=clrvideo;
         placetextbuffer(textbuffer);
+        proto_render(video);
+        videold=video;
       }
-    }
+    //}
     if(video!==videold){
       proto_render(video);
       videold=video;
@@ -263,6 +304,25 @@ function runcmdscript(dir){
   }
 }
 
+function addlnbrks(f){
+  var out = "";
+  if(f!==undefined&&f===f){
+    var d = 0;
+    for(i=0;i<f.length;i++){
+      d++;
+      if(d>WIDTH){
+        d=0;
+        out+="\n";
+      }
+      if(f.charAt(i)==="\n"){
+        d=0;
+      }
+      out+=f.charAt(i);
+    }
+  }
+  return out;
+}
+
 function processcmd(inpt){
   var cmdinpt = breakspace(inpt);
   var i,f;
@@ -286,7 +346,7 @@ function processcmd(inpt){
     textbufferpre+="\n";
   }else if(cmdinpt[0] === "cd"){
     if(cmdinpt.length<2){return;}
-    changedir(cmdinpt[1]);
+    changedir(dirreltoab(cmdinpt[1]));
   }else if(cmdinpt[0] === "shutdown"){
     if(cmdinpt[1]==="--"){
       textbufferpre+="Shutting down... "
@@ -298,7 +358,7 @@ function processcmd(inpt){
     processcmd('cat /bin/help.txt');
   }else if(cmdinpt[0]==="cat"){
     if(cmdinpt.length<2){return;}
-    f = retfile(dirreltoab(cmdinpt[1]))
+    f = retfile(dirreltoab(cmdinpt[1]));
     //textbufferpre+=f+"\n";
     if(f!==undefined&&f===f){
     var d = 0;
@@ -361,7 +421,7 @@ function processcmd(inpt){
   }
 }
 
-function attralias(cmdinpt){
+function attralias(cmdinpt){// ["alof arg1 arg2"]
   var f = retfile('/bin/aliaslist.dat');
   f = albrksmc(f);
   //console.log(f);
@@ -428,6 +488,10 @@ function dirreltoab(dir){
   // x
   if(dir.charAt(0)==='.'&&dir.charAt(1)==='/'){
     dir = workingdir+dir.slice(2);
+  }else if(dir.charAt(0)==='~'&&dir.charAt(1)==='/'){
+    dir = homedir+dir.slice(2);
+  }else if(dir==="~"){
+    dir = homedir;
   }else if(dir.charAt(0)==='.'&&dir.charAt(1)==='.'&&dir.charAt(2)==='/'){
     var dl = getdirlist(workingdir);
     dl.splice(dl.length-1,1);
