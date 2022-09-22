@@ -21,11 +21,11 @@ var files = [
   ["boot/autoexec.sh", "rjef /quickalias/setup.ef\n"],
   [
     "boot/autoexec.ef",
-    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.45 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";',
+    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.46 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";',
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.45 -- development build 17, not for public use",
+    "CSDOS b0.46 -- development build 18, not for public use",
   ],
   [
     "/bin/aliaslist.dat",
@@ -177,14 +177,20 @@ var ccatbar = ":";
 var ccatend = "$ ";
 var ccatcur = "_";
 
-const WIDTH = 100;
-const HEIGHT = 30;
+var WIDTH = 100;
+var HEIGHT = 30;
 
 var mpev = false;
 
 function setup() {
   createCanvas(Math.floor(7.214 * WIDTH), 15 * HEIGHT);
   Main();
+}
+
+function screen_change(newwidth,newheight){
+  WIDTH = newwidth;
+  HEIGHT = newheight;
+  createCanvas(Math.floor(7.214 * WIDTH), 15 * HEIGHT);
 }
 
 function draw() {
