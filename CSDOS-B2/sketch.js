@@ -21,11 +21,11 @@ var files = [
   ["boot/autoexec.sh", "rjef /quickalias/setup.ef\n"],
   [
     "boot/autoexec.ef",
-    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.46 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";',
+    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.47 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";',
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.46 -- development build 19, not for public use",
+    "CSDOS b0.47 -- development build 20, not for public use",
   ],
   [
     "/bin/aliaslist.dat",
@@ -137,6 +137,10 @@ var files = [
     "/bin/brainf/brainf-int-gui.ef",
     'retcmd="rjef /bin/brainf/brainf-int-gui.ef";\nif(retvar===-1){\n    processcmd("rjef /bin/brainf/brainf-int.ef");\n    keyinput="";\n}else{\n    if(ckeydo){\n        if(ckey==="Enter"){\n            set_sysvar("BFI_PR",keyinput);\n            retcmd="rjef /bin/brainf/brainf-int.ef";\n            keyinput="";\n        }else if(ckey==="Backspace"){\n            keyinput=keyinput.slice(0,keyinput.length-1);\n        }\n        ckeydo=false;\n    }\n    textbuffer=keyinput+"_";\n}',
   ],
+  [
+    "/bin/brainf/brainf-int-load.ef",
+    'processcmd("rjef /bin/brainf/brainf-int.ef");\nset_sysvar("BFI_PR",retfile(dirreltoab(cmdinpt[cmdinpt.length-1])));\nretcmd="rjef /bin/brainf/brainf-int.ef";',
+  ],
 ]; // name/ tags, then file.ex
 
 var sysvars = [0, true];
@@ -187,7 +191,7 @@ function setup() {
   Main();
 }
 
-function screen_change(newwidth,newheight){
+function screen_change(newwidth, newheight) {
   WIDTH = newwidth;
   HEIGHT = newheight;
   createCanvas(Math.floor(7.214 * WIDTH), 15 * HEIGHT);
