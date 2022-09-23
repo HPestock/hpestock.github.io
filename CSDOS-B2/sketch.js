@@ -25,7 +25,7 @@ var files = [
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.46 -- development build 18, not for public use",
+    "CSDOS b0.46 -- development build 19, not for public use",
   ],
   [
     "/bin/aliaslist.dat",
@@ -191,6 +191,10 @@ function screen_change(newwidth,newheight){
   WIDTH = newwidth;
   HEIGHT = newheight;
   createCanvas(Math.floor(7.214 * WIDTH), 15 * HEIGHT);
+  blkvideo = get_blank_screen(WIDTH, HEIGHT, 0);
+  clrvideo = get_blank_screen(WIDTH, HEIGHT, 255);
+  video = clrvideo;
+  placetextbuffer(textbuffer);
 }
 
 function draw() {
