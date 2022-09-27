@@ -21,20 +21,22 @@ var files = [
   ["boot/autoexec.sh", "rjef /quickalias/setup.ef\n"],
   [
     "boot/autoexec.ef",
-    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.47 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";',
+    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.48 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";',
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.47 -- development build 20, not for public use",
+    "CSDOS b0.48 -- development build 21, not for public use",
   ],
+  ["/info/updates.txt","CSDOS Beta Version 0.48 Development Build 21:\n  Added /info/updates.txt and version info, \n  Added select aliases to help file\n  Planned use of /info/updateshistory.txt\n"],
+  ["/info/updateshistory.txt","CSDOS Beta Version 0.48 Development Build 21:\n  Added /info/updates.txt and version info, \n  Added select aliases to help file\n  Planned use of /info/updateshistory.txt\n"],
   [
     "/bin/aliaslist.dat",
-    ';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!;text:!rjef /bin/text.ef!;drawtest:!ejs retcmd="rjef /drawtest.ef"!',
+    ';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!;text:!rjef /bin/text.ef!;drawtest:!ejs retcmd="rjef /drawtest.ef"!;mvinpt:!rjef /bin/mvinpt.ef!;loadoutput:!rjef /bin/loadoutput.ef!;verinfo:!cat /info/updates.txt!',
   ],
   ["/root/userdata.dat", ""],
   [
     "/bin/help.txt",
-    "lsdir [dir -- optional] - list the contents of the current directory, or [dir]\ncd [dir] - changes the current directory to [dir]\nshutdown - use 'shutdown --' to halt CSDOS\nhelp - display this dialog from /bin/help.txt\ncat [dir] - display the contents of the file [dir] in the console\nclr - clear the screen\nrjef [dir] - run the file [dir] in JavaScript from processcmd() using eval()\nejs [code] - run [code] in eval() from processcmd(), note that all blocks of spaces will be changed into a single space\nalias [aliasname] [aliascontents] - add an alias, typing [aliasname] as a command will run [aliascontents] through processcmd() with any arguments/parameters from after [aliasname] appended to the str_input for processcmd()\nreadext - open a prompt that will write contents to ext/input\necho [text] - display [text] in console\nver - display version info\n",
+    "ls / lsdir [dir -- optional] - list the contents of the current directory, or [dir]\ncd [dir] - changes the current directory to [dir]\nshutdown - use 'shutdown --' to halt CSDOS\nhelp - display this dialog from /bin/help.txt\ncat [dir] - display the contents of the file [dir] in the console\nclr - clear the screen\n$ / rjef [dir] - run the file [dir] in JavaScript from processcmd() using eval()\nejs [code] - run [code] in eval() from processcmd(), note that all blocks of spaces will be changed into a single space\nalias [aliasname] [aliascontents] - add an alias, typing [aliasname] as a command will run [aliascontents] through processcmd() with any arguments/parameters from after [aliasname] appended to the str_input for processcmd()\nreadext - open a prompt that will write contents to ext/input\necho [text] - display [text] in console\nver - display version info\n# [dir] - run the shell file [dir], this command is an alias\nalof [dir] - uses alert dialogue to display the contents of file at [dir], this command is an alias\ncatof [dir] - displays the contents of the file [dir] in the console in editor form\nmvinpt [dir] - copy ext/input to file [dir]\nloadoutput [dir] - copy file [dir] to ext/output\noutext [mode -- optional, default: -a] - displays the contents of ext/output using argument [mode] (-a: alert dialogue, -c: JavaScript console)\nverinfo - display version info and update details\n",
   ],
   [
     "/bin/test.ef",
@@ -141,6 +143,9 @@ var files = [
     "/bin/brainf/brainf-int-load.ef",
     'processcmd("rjef /bin/brainf/brainf-int.ef");\nset_sysvar("BFI_PR",retfile(dirreltoab(cmdinpt[cmdinpt.length-1])));\nretcmd="rjef /bin/brainf/brainf-int.ef";',
   ],
+  ["ext/output", "#NOFILE"],
+  ["/bin/mvinpt.ef", "processcmd(\"rjef /bin/copy.ef ext/input \"+cmdinpt[2]);"],
+  ["/bin/loadoutput.ef","processcmd(\"rjef /bin/copy.ef \"+cmdinpt[2]+\" ext/output\");"]
 ]; // name/ tags, then file.ex
 
 var sysvars = [0, true];
@@ -594,6 +599,14 @@ function processcmd(inpt) {
     textbufferpre += inpt.slice(5) + "\n";
   } else if (cmdinpt[0] === "ver") {
     processcmd("cat /bin/version.dat");
+  } else if (cmdinpt[0] === "outext") {
+    if (cmdinpt.length === 1) {
+      alert(retfile("ext/output"));
+    } else if (cmdinpt[1] === "-a") {
+      alert(retfile("ext/output"));
+    } else if (cmdinpt[1] === "-c") {
+      console.log(retfile("ext/output"));
+    }
   } else if (inpt === "") {
   } else {
     if (!attralias(cmdinpt)) {
