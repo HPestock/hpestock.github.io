@@ -21,14 +21,14 @@ var files = [
   ["boot/autoexec.sh", "rjef /quickalias/setup.ef\n"],
   [
     "boot/autoexec.ef",
-    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.48 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";',
+    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.49 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";',
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.48 -- development build 22, not for public use",
+    "CSDOS b0.49 -- development build 23, not for public use",
   ],
-  ["/info/updates.txt","CSDOS Beta Version 0.48 Development Build 21:\n  Added /info/updates.txt and version info, \n  Added select aliases to help file\n  Planned use of /info/updateshistory.txt\n\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n"],
-  ["/info/updateshistory.txt","CSDOS Beta Version 0.48 Development Build 21:\n  Added /info/updates.txt and version info, \n  Added select aliases to help file\n  Planned use of /info/updateshistory.txt\n\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n"],
+  ["/info/updates.txt","CSDOS Beta Version 0.48 Development Build 21:\n  Added /info/updates.txt and version info, \n  Added select aliases to help file\n  Planned use of /info/updateshistory.txt\n\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n"],
+  ["/info/updateshistory.txt","CSDOS Beta Version 0.48 Development Build 21:\n  Added /info/updates.txt and version info, \n  Added select aliases to help file\n  Planned use of /info/updateshistory.txt\n\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n"],
   [
     "/bin/aliaslist.dat",
     ';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!;text:!rjef /bin/text.ef!;drawtest:!ejs retcmd="rjef /drawtest.ef"!;mvinpt:!rjef /bin/mvinpt.ef!;loadoutput:!rjef /bin/loadoutput.ef!;verinfo:!cat /info/updates.txt!',
@@ -145,7 +145,8 @@ var files = [
   ],
   ["ext/output", "#NOFILE"],
   ["/bin/mvinpt.ef", "processcmd(\"rjef /bin/copy.ef ext/input \"+cmdinpt[2]);"],
-  ["/bin/loadoutput.ef","processcmd(\"rjef /bin/copy.ef \"+cmdinpt[2]+\" ext/output\");"]
+  ["/bin/loadoutput.ef","processcmd(\"rjef /bin/copy.ef \"+cmdinpt[2]+\" ext/output\");"],
+  ["/bin/paint.ef","if(retvar===-1){\n    retcmd=\"rjef /bin/paint.ef\";\n    set_sysvar(\"PAINT_WF\",clrvideo);\n    set_sysvar(\"PAINT_DOT\",\"#\");\n    set_sysvar(\"PAINT_WFW\",WIDTH);\n    set_sysvar(\"PAINT_WFH\",HEIGHT);\n    if(cmdinpt.length>2){\n        var f = retfile(dirreltoab(cmdinpt[2]));\n        var cont = true;\n        var w = \"\";\n        var i = 0;\n        while(cont){\n            if(f.charAt(i)===\"*\"){\n                cont=false;\n            }else{\n                w+=f.charAt(i);\n            }\n            i++;\n        }\n        var h = \"\";\n        cont = true;\n        while(cont){\n            if(f.charAt(i)===\":\"){\n                cont=false;\n            }else{\n                h+=f.charAt(i);\n            }\n            i++;\n        }\n        w = parseInt(w);\n        h = parseInt(h);\n        set_sysvar(\"PAINT_WFW\",w);\n        set_sysvar(\"PAINT_WFH\",h);\n        set_sysvar(\"PAINT_WF\",f.slice(i,f.length));\n    }\n    retvar=0;\n}\nif(retvar===0){\n    var WF = get_sysvar(\"PAINT_WF\");\n    var DOT = get_sysvar(\"PAINT_DOT\");\n    var MD = get_sysvar(\"driver_mouse_down\");\n\n    if(keydown){\n        if(ckeydo){\n            if(ckey===\"Escape\"){\n                retvar=1;\n                keyinput=\"\";\n            }\n            ckeydo=false;\n        }else{\n            if(keyinput!==\"\"){\n                DOT=keyinput.charAt(0);\n            }\n            keyinput=\"\";\n        }\n    }\n\n    if(MD){\n        WF = chchar(WF,DOT,get_sysvar(\"driver_mouse_y\")*get_sysvar(\"PAINT_WFW\")+get_sysvar(\"driver_mouse_x\"));\n    }\n\n    textbuffer=WF;\n    set_sysvar(\"PAINT_WF\",WF);\n    set_sysvar(\"PAINT_DOT\",DOT);\n}else if(retvar===1){\n    textbuffer=\"Save file? (y/n)\";\n    if(keyinput!==\"\"){\n        if(keyinput.charAt(0)===\"y\"||keyinput.charAt(0)===\"Y\"){\n            retvar=2;\n        }else if(keyinput.charAt(0)===\"n\"||keyinput.charAt(0)===\"N\"){\n            retvar=-1;\n            retcmd=\"\";\n        }\n        keyinput=\"\";\n    }\n}else if(retvar===2){\n    textbuffer=\"Enter file name: \"+keyinput+\"_\";\n    if(ckeydo){\n        if(ckey===\"Enter\"){\n            placecheapfilelong(keyinput,\"\"+get_sysvar(\"PAINT_WFW\")+\"*\"+get_sysvar(\"PAINT_WFH\")+\":\"+get_sysvar(\"PAINT_WF\"));\n            keyinput=\"\";\n            retcmd=\"\";\n            retvar=-1;\n        }else if(ckey===\"Backspace\"){\n            keyinput=keyinput.slice(0,keyinput.length-1);\n        }\n        ckeydo=false;\n    }\n}"]
 ]; // name/ tags, then file.ex
 
 var sysvars = [0, true];
@@ -837,6 +838,11 @@ function placecheapfile(dir, fname, file) {
   files.push([dir + fname, file]);
 }
 
+function placecheapfilelong(fname,file){
+  removefile(fname);
+  files.push([fname,file]);
+}
+
 function zerodirfile(dir) {
   for (var i = 0; i < files.length; i++) {
     if (files[i][0] === dir) {
@@ -927,6 +933,10 @@ function brtochar(t) {
     out = "-";
   }
   return out;
+}
+
+function chchar(str,nc,p){
+  return str.slice(0,p)+nc+str.slice(p+1);
 }
 
 function textboxgetlnok(t, d) {
