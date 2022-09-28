@@ -25,13 +25,13 @@ var files = [
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.49 -- development build 23, not for public use",
+    "CSDOS b0.49 -- development build 24, not for public use",
   ],
-  ["/info/updates.txt","CSDOS Beta Version 0.48 Development Build 21:\n  Added /info/updates.txt and version info, \n  Added select aliases to help file\n  Planned use of /info/updateshistory.txt\n\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n"],
-  ["/info/updateshistory.txt","CSDOS Beta Version 0.48 Development Build 21:\n  Added /info/updates.txt and version info, \n  Added select aliases to help file\n  Planned use of /info/updateshistory.txt\n\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n"],
+  ["/info/updates.txt","CSDOS Beta Version 0.48 Development Build 21:\n  Added /info/updates.txt and version info, \n  Added select aliases to help file\n  Planned use of /info/updateshistory.txt\n\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n"],
+  ["/info/updateshistory.txt","CSDOS Beta Version 0.48 Development Build 21:\n  Added /info/updates.txt and version info, \n  Added select aliases to help file\n  Planned use of /info/updateshistory.txt\n\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n"],
   [
     "/bin/aliaslist.dat",
-    ';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!;text:!rjef /bin/text.ef!;drawtest:!ejs retcmd="rjef /drawtest.ef"!;mvinpt:!rjef /bin/mvinpt.ef!;loadoutput:!rjef /bin/loadoutput.ef!;verinfo:!cat /info/updates.txt!',
+    ';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!;text:!rjef /bin/text.ef!;drawtest:!ejs retcmd="rjef /drawtest.ef"!;mvinpt:!rjef /bin/mvinpt.ef!;loadoutput:!rjef /bin/loadoutput.ef!;verinfo:!cat /info/updates.txt!;paint:!rjef /bin/paint.ef!',
   ],
   ["/root/userdata.dat", ""],
   [
@@ -90,15 +90,15 @@ var files = [
   ],
   [
     "/SSL10/unset.ef",
-    'if(retvar===-1){retvar=0;retcmd="rjef /SSL10/unset.ef";keyinput="";}if(retvar===0){textbuffer="Enter the user to unset: \\n"+keyinput+"_";if(ckeydo&&ckey==="Backspace"){keyinput=keyinput.slice(0,keyinput.length-2);ckeydo=false;}else if(ckeydo&&ckey==="Enter"){var f=retfile("/SSL10/passwds.dat").split("!");for(var iii=0;iii<f.length;iii+=2){if(f[iii]===keyinput){f.splice(iii,2);iii-=2;}}f=f.join("!");placecheapfile("/SSL10/","passwds.dat",f);retvar=-1;retcmd="";keyinput="";ckeydo=false;}}',
+    'if(retvar===-1){retvar=0;retcmd="rjef /SSL10/unset.ef";keyinput="";}if(retvar===0){textbuffer="Enter the user to unset: \\n"+keyinput+"_";if(ckeydo&&ckey==="Backspace"){keyinput=keyinput.slice(0,keyinput.length-1);ckeydo=false;}else if(ckeydo&&ckey==="Enter"){var f=retfile("/SSL10/passwds.dat").split("!");for(var iii=0;iii<f.length;iii+=2){if(f[iii]===keyinput){f.splice(iii,2);iii-=2;}}f=f.join("!");placecheapfile("/SSL10/","passwds.dat",f);retvar=-1;retcmd="";keyinput="";ckeydo=false;}}',
   ],
   [
     "/SSL10/set.ef",
-    'if(retvar===-1){retvar=0;retcmd="rjef /SSL10/set.ef";keyinput="";placecheapfile("/SSL10/","temp.dat","");}var F = retfile("/SSL10/temp.dat");if(retvar===0){textbuffer="Unset users before changing passwords. \\nEnter new username: \\n"+keyinput+"_";if(ckeydo&&ckey==="Backspace"){keyinput=keyinput.slice(0,keyinput.length-2);ckeydo=false;}else if(ckeydo&&ckey==="Enter"){placecheapfile("/SSL10/","temp.dat",keyinput);retvar=1;keyinput="";ckeydo=false;}}else if(retvar===1){textbuffer="Unset users before changing passwords. \\nEnter password: \\n"+keyinput+"_";if(ckeydo&&ckey==="Backspace"){keyinput=keyinput.slice(0,keyinput.length-2);ckeydo=false;}else if(ckeydo&&ckey==="Enter"){placecheapfile("/SSL10/","passwds.dat",retfile("/SSL10/passwds.dat")+F+"!"+keyinput+"!");retvar=-1;retcmd="";keyinput="";ckeydo=false;}}',
+    'if(retvar===-1){retvar=0;retcmd="rjef /SSL10/set.ef";keyinput="";placecheapfile("/SSL10/","temp.dat","");}var F = retfile("/SSL10/temp.dat");if(retvar===0){textbuffer="Unset users before changing passwords. \\nEnter new username: \\n"+keyinput+"_";if(ckeydo&&ckey==="Backspace"){keyinput=keyinput.slice(0,keyinput.length-1);ckeydo=false;}else if(ckeydo&&ckey==="Enter"){placecheapfile("/SSL10/","temp.dat",keyinput);retvar=1;keyinput="";ckeydo=false;}}else if(retvar===1){textbuffer="Unset users before changing passwords. \\nEnter password: \\n"+keyinput+"_";if(ckeydo&&ckey==="Backspace"){keyinput=keyinput.slice(0,keyinput.length-1);ckeydo=false;}else if(ckeydo&&ckey==="Enter"){placecheapfile("/SSL10/","passwds.dat",retfile("/SSL10/passwds.dat")+F+"!"+keyinput+"!");retvar=-1;retcmd="";keyinput="";ckeydo=false;}}',
   ],
   [
     "/SSL10/lock.ef",
-    'if(retvar===-1){retvar=0;retcmd="rjef /SSL10/lock.ef";placecheapfile("/SSL10/","temp.dat","");keyinput="";}var F = retfile("/SSL10/temp.dat");if(retvar===0){textbuffer=retfile("/SSL10/header.dat")+"Username: "+keyinput+"_";if(ckeydo){if(ckey==="Backspace"){keyinput=keyinput.slice(0,keyinput.length-2);}else if(ckey==="Enter"){placecheapfile("/SSL10/","temp.dat",keyinput);keyinput="";retvar=1;}ckeydo=false;}}else if(retvar===1){textbuffer=retfile("/SSL10/header.dat")+"Username: "+F+"\\n"+"Password: _";if(ckeydo){if(ckey==="Backspace"){keyinput=keyinput.slice(0,keyinput.length-2);}else if(ckey==="Enter"){var f=retfile("/SSL10/passwds.dat").split("!");var pass=false;for(var iii=0;iii<F.length;iii+=2){if(f[iii]===F&&f[iii+1]===keyinput){pass=true;}}if(pass){retvar=-1;retcmd="";keyinput="";}else{retvar=0;keyinput="";}}ckeydo=false;}}',
+    'if(retvar===-1){retvar=0;retcmd="rjef /SSL10/lock.ef";placecheapfile("/SSL10/","temp.dat","");keyinput="";}var F = retfile("/SSL10/temp.dat");if(retvar===0){textbuffer=retfile("/SSL10/header.dat")+"Username: "+keyinput+"_";if(ckeydo){if(ckey==="Backspace"){keyinput=keyinput.slice(0,keyinput.length-1);}else if(ckey==="Enter"){placecheapfile("/SSL10/","temp.dat",keyinput);keyinput="";retvar=1;}ckeydo=false;}}else if(retvar===1){textbuffer=retfile("/SSL10/header.dat")+"Username: "+F+"\\n"+"Password: _";if(ckeydo){if(ckey==="Backspace"){keyinput=keyinput.slice(0,keyinput.length-1);}else if(ckey==="Enter"){var f=retfile("/SSL10/passwds.dat").split("!");var pass=false;for(var iii=0;iii<F.length;iii+=2){if(f[iii]===F&&f[iii+1]===keyinput){pass=true;}}if(pass){retvar=-1;retcmd="";keyinput="";}else{retvar=0;keyinput="";}}ckeydo=false;}}',
   ],
   ["/SSL10/listpasswds.ef", 'processcmd("cat /SSL10/passwds.dat");'],
   [
