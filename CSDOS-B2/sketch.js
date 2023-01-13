@@ -21,14 +21,14 @@ var files = [
   ["boot/autoexec.sh", "rjef /quickalias/setup.ef\nejs set_sysvar(\"AEBOOT_DISPSPLASH\",true);set_sysvar(\"AEBOOT_SPLASHTIME\",4);set_sysvar(\"AEBOOT_SPLASHALLESC\",false);\nejs mainret=\"rjef /bin/schf\"\n"],
   [
     "boot/autoexec.ef",
-    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.49201 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";if(get_sysvar(\"AEBOOT_DISPSPLASH\")){if(get_sysvar(\"AEBOOT_SPLASHALLESC\")){processcmd(\"rjef /bin/displaypxt.ef /info/splash.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\"))}else{processcmd(\"rjef /bin/displaypxt.ef /info/splash.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\")+\" -l\")}};',
+    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.5 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";if(get_sysvar(\"AEBOOT_DISPSPLASH\")){if(get_sysvar(\"AEBOOT_SPLASHALLESC\")){processcmd(\"rjef /bin/displaypxt.ef /info/splash.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\"))}else{processcmd(\"rjef /bin/displaypxt.ef /info/splash.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\")+\" -l\")}};',
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.49201 -- development build 31, not for public use",
+    "CSDOS b0.5 -- development build 32, not for public use",
   ],
-  ["/info/updates.txt","CSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n"],
-  ["/info/updateshistory.txt","\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n\nCSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n"],
+  ["/info/updates.txt","CSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n"],
+  ["/info/updateshistory.txt","\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n\nCSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n"],
   [
     "/bin/aliaslist.dat",
     ';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!;text:!rjef /bin/text.ef!;drawtest:!ejs retcmd="rjef /drawtest.ef"!;mvinpt:!rjef /bin/mvinpt.ef!;loadoutput:!rjef /bin/loadoutput.ef!;verinfo:!cat /info/updates.txt!;paint:!rjef /bin/paint.ef!;jsh:!rjef /bin/jsh.ef!;brainf-int:!rjef /bin/brainf/brainf-int.ef!;brainf-int-gui:!rjef /bin/brainf/brainf-int-gui.ef!;brainf-int-load:!rjef /bin/brainf/brainf-int-load.ef!',
@@ -152,7 +152,8 @@ var files = [
   ["/bin/displaypxt.ef","if(retvar===-1){\n    retcmd=\"rjef /bin/displaypxt.ef\";\n    retvar=0;\n    var f = retfile(dirreltoab(cmdinpt[2]));\n    var cont = true;\n    var w = \"\";\n    var i = 0;\n    while(cont){\n        if(f.charAt(i)===\"*\"){\n            cont=false;\n        }else{\n            w+=f.charAt(i);\n        }\n        i++;\n    }\n    var h = \"\";\n    cont = true;\n    while(cont){\n        if(f.charAt(i)===\":\"){\n            cont=false;\n        }else{\n            h+=f.charAt(i);\n        }\n        i++;\n    }\n    w = parseInt(w);\n    h = parseInt(h);\n    set_sysvar(\"DPXT_WFW\",w);\n    set_sysvar(\"DPXT_WFH\",h);\n    set_sysvar(\"DPXT_WF\",f.slice(i,f.length));\n    set_sysvar(\"DPXT_ALLOWESC\",true);\n    set_sysvar(\"DPXT_WAIT\",false);\n    var i;\n    for(i=0;i<cmdinpt.length;i++){\n        if(cmdinpt[i]===\"-l\"){\n            set_sysvar(\"DPXT_ALLOWESC\",false);\n        }else if(cmdinpt[i]===\"-t\"){\n            if(i<cmdinpt.length-1){\n                set_sysvar(\"DPXT_WAIT\",true);\n                set_sysvar(\"DPXT_WAITAMT\",Math.floor(1000*parseFloat(cmdinpt[i+1])));\n                set_sysvar(\"DPXT_WAITSTART\",Date.now());\n                i++;\n            }else{\n                /*NAVA*/\n            }\n        }\n    }\n}\nvar ALLOWESCAPE = get_sysvar(\"DPXT_ALLOWESC\");\ntextbuffer=fittocwh(get_sysvar(\"DPXT_WF\"),get_sysvar(\"DPXT_WFW\"));\nif(keydown){\n    if(ckeydo){\n        if(ckey===\"Escape\"&&ALLOWESCAPE){\n            retvar=-1;\n            retcmd=\"\";\n            keyinput=\"\";\n        }\n        ckeydo=false;\n    }\n}\nif(get_sysvar(\"DPXT_WAIT\")&&Date.now()-get_sysvar(\"DPXT_WAITSTART\")>=get_sysvar(\"DPXT_WAITAMT\")){\n    retvar=-1;\n    retcmd=\"\";\n}"],
   ["/info/splash.pxt","100*30:                                                                                                     ##################################################################################################  ##################################################################################################  ##                                                                                              ##  ##                                                                                              ##  ##      ###########      #####        ####                                                      ##  ##     #### #### ###   ##########     #######       #####       ########                        ##  ##    ####            ###     ###     #########   ##########    ###  ####                       ##  ##    ###             ##              ###  #####  ##      ###   ###                             ##  ##    ###             ##              ###    #### ##      ###   ####                            ##  ##    ##               ###########    ###     ### ##       ##   ###########                     ##  ##    ###               ############  ###     ### ##       ##    ###########                    ##  ##    ###                         ##  ###     ### ###      ##             ###                   ##  ##    ###                        ###  ###     ###  ###    ###             ###                   ##  ##    #####          ####       ###   ###    ####   ###   ###            ####                   ##  ##     #####      #########  ######   ###   ####    ######### #        ######                   ##  ##      #############  #########      #########      #####    ##############                    ##  ##       ###########    ######        ######                   ########## #                     ##  ##                                                                                              ##  ##                                                                    Shout out to Nickkey T.   ##  ##                                                                                              ##  ##                                                                    Special thanks to all my  ##  ##                                                                    homies from Sumerian Nose ##  ##                                                                    Job, and all my mans      ##  ##                                                                    around the way.           ##  ##  CSDOS Beta -- In Development         C. Pestock (c) 2022          And trout.                ##  ##                                                                                              ##  ##################################################################################################  ##################################################################################################                                                                                                     "],
   ["/bin/jsh.ef","if(retvar===-1){\n    set_sysvar(\"JSH_TEXT\",\"\");\n    retvar=0;\n    retcmd=\"rjef /bin/jsh.ef\";\n    keyinput=\"\";\n}\n\nvar JSH_TEXT = get_sysvar(\"JSH_TEXT\");\n\nfunction JSH_COUT(s){\n    JSH_TEXT+=s+\"\\n\";\n}\n\nif(ckeydo){\n    if(ckey===\"Enter\"){\n        JSH_TEXT+=keyinput+\"\\n\";\n        eval(keyinput);\n        keyinput=\"\";\n    }else if(ckey===\"Escape\"){\n        retcmd=\"\";\n        retvar=-1;\n    }else if(ckey===\"Backspace\"){\n        keyinput=keyinput.slice(0,keyinput.length-1);\n    }\n    ckeydo=false;\n}\n\nset_sysvar(\"JSH_TEXT\",JSH_TEXT);\n\ntextbuffer=JSH_TEXT+keyinput+\"_\";"],["/bin/folderpkg.ef","var dir = dirreltoab(cmdinpt[2]);\nvar outdir = dirreltoab(cmdinpt[3]);\nvar out = \"[\";\nvar x = false;\nfor(var i=0;i<=gethighestfileindex();i++){\n    var dt = retfilenamebyindex(i).slice(0,dir.length);\n    if(dt===dir){\n        if(x){\n            out+=\",\";\n        }\n        out+=\"[\\\"\"+retfilenamebyindex(i).slice(dir.length)+\"\\\",\\\"\"+escform(retfilebyindex(i))+\"\\\"]\";\n        x=true;\n    }\n}\nout+=\"]\";\nplacecheapfilelong(outdir,out);"],["/bin/folderunpkg.ef","var f = retfile(dirreltoab(cmdinpt[2]));\nvar dir = dirreltoab(cmdinpt[3]);\nvar fr = eval(f);\nfor(var i=0;i<fr.length;i++){\n    placecheapfilelong(dir+fr[i][0],fr[i][1]);\n}"],
-  ["/bin/schf","var M_LIST = get_sysvar(\"schf_list\");\nif(M_LIST===-255){\n    M_LIST = [\"rjef /bin/cmd\"];\n    //set_sysvar(\"shcf_list\",M_LIST);\n}\nvar M_CSCH = get_sysvar(\"schf_csch\");\nif(M_CSCH===-255){\n    M_CSCH = 0;\n    //set_sysvar(\"schf_csch\",0);\n}\nset_sysvar(\"schf_active\",true);\nprocesscmd(M_LIST[M_CSCH]);\nset_sysvar(\"schf_active\",false);\nM_CSCH=(M_CSCH+1)%M_LIST.length;\nset_sysvar(\"schf_list\",M_LIST);\nset_sysvar(\"schf_csch\",M_CSCH);"]
+  ["/bin/schf","var M_LIST = get_sysvar(\"schf_list\");\nif(M_LIST===-255){\n    M_LIST = [\"rjef /bin/cmd\"];\n    //set_sysvar(\"shcf_list\",M_LIST);\n}\nvar M_CSCH = get_sysvar(\"schf_csch\");\nif(M_CSCH===-255){\n    M_CSCH = 0;\n    //set_sysvar(\"schf_csch\",0);\n}\nset_sysvar(\"schf_active\",true);\nprocesscmd(M_LIST[M_CSCH]);\nset_sysvar(\"schf_active\",false);\nM_CSCH=(M_CSCH+1)%M_LIST.length;\nset_sysvar(\"schf_list\",M_LIST);\nset_sysvar(\"schf_csch\",M_CSCH);"], 
+  ["/bin/ueftest.uef","if(get_sysvar(\"schf_active\")===true){\n    //opened as background program\n    schf_killTask(\"rjef \"+API_DIRCALLED());\n    API_APPENDTEXTBUFFERPRE(\"Task (?) Killed\\n\");\n}else{\n    //opened as standard program\n    if(API_GETRETVAR()===-1){\n        schf_killTask(\"rjef \"+API_DIRCALLED());\n        schf_addTask(\"rjef \"+API_DIRCALLED());\n        //alert(API_DIRCALLED());\n        API_SETRETVAR(0);\n        API_SETRETCMD(\"rjef \"+API_DIRCALLED());\n    }\n    API_SETTEXTBUFFER(\"Press Backspace/Delete\"+API_GETCCATCUR());\n    if(API_CKEYDO()){\n        API_DIDCKEYCHK();\n        if(API_CKEY()===\"Backspace\"||API_CKEY()===\"Delete\"){\n            API_RESETRET();\n            API_CLRINPT();\n        }\n    }\n}"]
 ]; // name/ tags, then file.ex
 
 var sysvars = [0, true];
@@ -197,6 +198,8 @@ var WIDTH = 100;//122
 var HEIGHT = 30;//33
 
 var mpev = false;
+
+var dircalled = "";
 
 function setup() {
   createCanvas(Math.floor(7.214 * WIDTH), 15 * HEIGHT);
@@ -575,8 +578,12 @@ function processcmd(inpt) {
     if (cmdinpt.length < 2) {
       return;
     }
+    var retdir = dircalled;
+    dircalled = cmdinpt[1];
     eval(retfile(dirreltoab(cmdinpt[1])));
+    dircalled = retdir;
   } else if (cmdinpt[0] === "ejs") {
+    //legacy, no dircalled support (none needed as of b0.49201 build 31)
     eval(retfile(dirreltoab("/bin/ejss")));
   } else if (cmdinpt[0] === "alias") {
     //alias name command (name will run command through processcmd())
@@ -1019,4 +1026,102 @@ function schf_killTask(s){
         }
     }
     set_sysvar("schf_list",T);
+}
+
+function API_RESETRET(){
+  //API_RESETRET(): Reset return variables (use at end of standard programs to terminate their frame-loop execution)
+  retvar=-1;
+  retcmd="";
+}
+
+function API_CKEY(){
+  //API_CKEY(): Get string of most recently used control key
+  return ckey;
+}
+
+function API_CKEYDO(){
+  //API_CKEYDO(): Get boolean of whether a control key has been pressed
+  return ckeydo;
+}
+
+function API_DIDCKEYCHK(){
+  //API_DIDCKEYCHK(): Indicate that the most recently pressed control key has been processed (ckeydo = false)
+  ckeydo=false;
+}
+
+function API_SETRETVAR(x){
+  //API_SETRETVAR(retvar): Set the program return variable to retvar
+  retvar=x;
+}
+
+function API_SETRETCMD(x){
+  //API_SETRETCMD(retcmd): Set the program return command (use API_SETRETCMD("rjef "+API_DIRCALLED()) for standard program loop functionality)
+  retcmd=x;
+}
+
+function API_GETRETVAR(){
+  //API_GETRETVAR(): Get the program return variable
+  return retvar;
+}
+
+function API_GETRETCMD(){
+  //API_GETRETCMD(): Get the program return command
+  return retcmd;
+}
+
+function API_DIRCALLED(){
+  //API_DIRCALLED(): Get the directory of the currently running file (use so a file may be called without knowing its directory beforehand, allows for changing name and directory of any uef file)
+  return dircalled;
+}
+
+function API_RETDIRCALLED(x){
+  //API_RETDIRCALLED(dircalled): Set directory called (use after calling processcmd() with a variable saving API_GETDIRCALLED() from before processcmd() was called, only needed if rjef is a possible command)
+  dircalled = x;
+}
+
+function API_CLRINPT(){
+  //API_CLRINPT(): Clear input buffers (call at the beginning and end of a program's execution)
+  keyinput = "";
+  ckey = "";
+  ckeydo = false;
+}
+
+function API_SETTEXTBUFFER(x){
+  //API_SETTEXTBUFFER(textbuffer): Set the text buffer to textbuffer (video mode must be "buffer" for this to affect the display)
+  textbuffer=x;
+}
+
+function API_GETCCATAT(){
+  //API_GETCCATAT(): Get string of at symbol concatenator (@ by default in command line)
+  return ccatat;
+}
+
+function API_GETCCATBAR(){
+  //API_GETCCATBAR(): Get string of bar symbol concatenator (: by default in command line)
+  return ccatbar;
+}
+
+function API_GETCCATEND(){
+  //API_GETCCATEND(): Get string of end symbol concatenator ($[space] by default in command line)
+  return ccatend;
+}
+
+function API_GETCCATCUR(){
+  //API_GETCCATEND(): Get string of cursor symbol concatenator (_ by default in command line)
+  return ccatcur;
+}
+
+function API_APPENDTEXTBUFFERPRE(x){
+  //API_APPENDTEXTBUFFERPRE(string): Append string to the command line display (ending string with \n is suggested, otherwise will place text at beginning of machine info)
+  textbufferpre+=x;
+}
+
+function API_GETVIDEOMODE(){
+  //API_GETVIDEOMODE(): Get video mode string ("buffer", "p5")
+  return videomode;
+}
+
+function API_SETVIDEOMODE(x){
+  //API_SETVIDEOMODE(videomode): Set video mode ("buffer", "p5")
+  videomode = x;
 }
