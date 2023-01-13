@@ -25,10 +25,10 @@ var files = [
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.51 -- development build 35, not for public use",
+    "CSDOS b0.51 -- development build 36, not for public use",
   ],
-  ["/info/updates.txt","CSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n"],
-  ["/info/updateshistory.txt","\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n\nCSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n"],
+  ["/info/updates.txt","CSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n"],
+  ["/info/updateshistory.txt","\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n\nCSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n"],
   [
     "/bin/aliaslist.dat",
     ';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!;text:!rjef /bin/text.ef!;drawtest:!ejs retcmd="rjef /drawtest.ef"!;mvinpt:!rjef /bin/mvinpt.ef!;loadoutput:!rjef /bin/loadoutput.ef!;verinfo:!cat /info/updates.txt!;paint:!rjef /bin/paint.ef!;jsh:!rjef /bin/jsh.ef!;brainf-int:!rjef /bin/brainf/brainf-int.ef!;brainf-int-gui:!rjef /bin/brainf/brainf-int-gui.ef!;brainf-int-load:!rjef /bin/brainf/brainf-int-load.ef!',
@@ -156,7 +156,8 @@ var files = [
   ["/bin/ueftest.uef","if(get_sysvar(\"schf_active\")===true){\n    //opened as background program\n    schf_killTask(\"rjef \"+API_DIRCALLED());\n    API_APPENDTEXTBUFFERPRE(\"Task (?) Killed\\n\");\n}else{\n    //opened as standard program\n    if(API_GETRETVAR()===-1){\n        schf_killTask(\"rjef \"+API_DIRCALLED());\n        schf_addTask(\"rjef \"+API_DIRCALLED());\n        //alert(API_DIRCALLED());\n        API_SETRETVAR(0);\n        API_SETRETCMD(\"rjef \"+API_DIRCALLED());\n    }\n    API_SETTEXTBUFFER(\"Press Backspace/Delete\"+API_GETCCATCUR());\n    if(API_CKEYDO()){\n        API_DIDCKEYCHK();\n        if(API_CKEY()===\"Backspace\"||API_CKEY()===\"Delete\"){\n            API_RESETRET();\n            API_CLRINPT();\n        }\n    }\n}"],
   ["/bin/repair_schf_noprogram.ef","retcmd=\"rjef /bin/repair_schf_noprogram.ef\";\nretvar=-1;\nbackgroundcol=[0,0,255];\ntextcol=[255,255,255];\ntextbuffer=\"An exception has occured, \\nOrdered: Reset scheduler variables, quit scheduler, set mainret program to /bin/cmd\\nNonfatal exception repair_schf_noprogram\\n\\n  Press Backspace/Delete to ignore this order, \\n  Press Enter to run this order (recommended); Note: system should be restarted in order to restart scheduler\\n\\nCSDOS Exception Handler Program\\n\"+retfile(\"/bin/version.dat\")+\"\\n_\";\nif(API_CKEYDO()){\n    API_DIDCKEYCHK();\n    if(API_CKEY()===\"Backspace\"||API_CKEY()===\"Delete\"){\n        retcmd=mainret;\n        retvar=-1;\n        backgroundcol=[0,0,0];\n        textcol=[255,255,255];\n    }else if(API_CKEY()===\"Enter\"){\n        force_rem_sysvar(\"schf_list\");\n        force_rem_sysvar(\"schf_csch\");\n        force_rem_sysvar(\"schf_active\");\n        mainret=\"rjef /bin/cmd\";\n        API_RESETRET();\n        API_CLRINPT();\n        backgroundcol=[0,0,0];\n        textcol=[255,255,255];\n    }\n}"],
   ["/bin/repair_schf_nolist.ef","retcmd=\"rjef /bin/repair_schf_nolist.ef\";\nretvar=-1;\nbackgroundcol=[0,0,255];\ntextcol=[255,255,255];\ntextbuffer=\"An exception has occured, \\nOrdered: Prevent action from occuring, notify user that UEF files cannot be run without scheduler\\nNonfatal exception repair_schf_nolist\\n\\n  Press Enter to continue\\n\\nCSDOS Exception Handler Program\\n\"+retfile(\"/bin/version.dat\")+\"\\n_\";\nif(API_CKEYDO()){\n    API_DIDCKEYCHK();\n    if(API_CKEY()===\"Enter\"){\n        API_RESETRET();\n        API_CLRINPT();\n        dircalled=\"\";\n        backgroundcol=[0,0,0];\n        textcol=[255,255,255];\n    }\n}"],
-  ["/bin/list_tasks.ef","var T = get_sysvar(\"schf_list\");\nfor(var i=0;i<T.length;i++){\n    API_APPENDTEXTBUFFERPRE(T[i]+\"\\n\");\n}"]
+  ["/bin/list_tasks.ef","var T = get_sysvar(\"schf_list\");\nfor(var i=0;i<T.length;i++){\n    API_APPENDTEXTBUFFERPRE(T[i]+\"\\n\");\n}"],
+  ["/bin/kernelwarnings/exc_retfile_nofilefound.ef","retcmd=\"rjef /bin/kernelwarnings/exc_retfile_nofilefound.ef\";\nretvar=-1;\nbackgroundcol=[0,0,255];\ntextcol=[255,255,255];\ntextbuffer=\"An exception has occured, \\nOrdered: Prevent action from occuring\\nNonfatal exception exc_retfile_nofilefound\\n\\n  Press Enter to continue\\n\\nCSDOS Exception Handler Program\\n\"+retfile(\"/bin/version.dat\")+\"\\n_\";\nif(API_CKEYDO()){\n    API_DIDCKEYCHK();\n    if(API_CKEY()===\"Enter\"){\n        API_RESETRET();\n        API_CLRINPT();\n        dircalled=\"\";\n        backgroundcol=[0,0,0];\n        textcol=[255,255,255];\n    }\n}"]
 ]; // name/ tags, then file.ex
 
 var sysvars = [0, true];
@@ -849,10 +850,16 @@ function retfile(dir) {
   if(dir.charAt(0)==="|"){
     return dir.slice(1);
   }else{
+  var exc = true;
   for (var i = 0; i < files.length; i++) {
     if (files[i][0] === dir) {
+      exc=false;
       return files[i][1];
     }
+  }
+  if(exc){
+    exception_retfile_nofilefound();
+    return "";
   }
   }
 }
@@ -1048,6 +1055,11 @@ function exception_schf_noprogram(){
   //mainret="rjef /bin/repair_schf_noprogram.ef";
   error_log("exception_schf_noprogram occured\n");
   processcmd("rjef /bin/repair_schf_noprogram.ef");
+}
+
+function exception_retfile_nofilefound(){
+  error_log("exception_retfile_nofilefound occured\n");
+  processcmd("rjef /bin/kernelwarnings/exc_retfile_nofilefound.ef");
 }
 
 function error_log(str){
