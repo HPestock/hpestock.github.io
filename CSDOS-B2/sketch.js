@@ -21,14 +21,14 @@ var files = [
   ["boot/autoexec.sh", "rjef /quickalias/setup.ef\nejs set_sysvar(\"AEBOOT_DISPSPLASH\",true);set_sysvar(\"AEBOOT_SPLASHTIME\",4);set_sysvar(\"AEBOOT_SPLASHALLESC\",false);\nejs mainret=\"rjef /bin/schf\"\n"],
   [
     "boot/autoexec.ef",
-    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.52 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";if(get_sysvar(\"AEBOOT_DISPSPLASH\")){if(get_sysvar(\"AEBOOT_SPLASHALLESC\")){processcmd(\"rjef /bin/displaypxt.ef /info/splash.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\"))}else{processcmd(\"rjef /bin/displaypxt.ef /info/splash.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\")+\" -l\")}};',
+    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.521 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";if(get_sysvar(\"AEBOOT_DISPSPLASH\")){if(get_sysvar(\"AEBOOT_SPLASHALLESC\")){processcmd(\"rjef /bin/displaypxt.ef /info/splash.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\"))}else{processcmd(\"rjef /bin/displaypxt.ef /info/splash.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\")+\" -l\")}};',
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.52 -- development build 37, not for public use",
+    "CSDOS b0.521 -- development build 38, not for public use",
   ],
-  ["/info/updates.txt","CSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n"],
-  ["/info/updateshistory.txt","\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n\nCSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n"],
+  ["/info/updates.txt","CSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.521 Development Build 38:\n  Created global-font system for rendering video. \n"],
+  ["/info/updateshistory.txt","\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n\nCSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.521 Development Build 38:\n  Created global-font system for rendering video. \n"],
   [
     "/bin/aliaslist.dat",
     ';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!;text:!rjef /bin/text.ef!;drawtest:!ejs retcmd="rjef /drawtest.ef"!;mvinpt:!rjef /bin/mvinpt.ef!;loadoutput:!rjef /bin/loadoutput.ef!;verinfo:!cat /info/updates.txt!;paint:!rjef /bin/paint.ef!;jsh:!rjef /bin/jsh.ef!;brainf-int:!rjef /bin/brainf/brainf-int.ef!;brainf-int-gui:!rjef /bin/brainf/brainf-int-gui.ef!;brainf-int-load:!rjef /bin/brainf/brainf-int-load.ef!',
@@ -204,6 +204,10 @@ var HEIGHT = 30;//33
 var mpev = false;
 
 var dircalled = "";
+
+var global_font = ["                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","       X    X    X         X       "," X X  X X                          "," X X  X X XXXXX X X  X X XXXXX X X ","  X   XXX X X X XX    XX   X X XXX ","XX  XXX  X   X   X   X   X  XXX  XX","  X   X X  X     X   X X X   X XXXX","  X    X                           ","   X   X    X    X    X    X     X "," X     X    X    X    X    X   X   ","  X X   X   X X                    ","       X    X  XXXXX  X    X       ","                             X   X ","               XXXXX               ","                            XX   XX","    X    X   X   X   X   X    X    ","  X   X X X   XX X XX   X X X   X  "," XX  X X    X    X    X    X  XXXXX"," XXX X   X   X   X   X   X    XXXXX"," XXX X   X    X  XX     XX   X XXX ","   X   XX  X X  XXXX   X    X    X ","XXXXXX    X    XXXX     XX   X XXX ","   XX  X   X    X    XXX  X  X  XX ","XXXXX    X   X   X   X   X    X    "," XXX X   XX   X XXX X   XX   X XXX ","  X   X X  X X   XX   X   X        ","             X              X      ","             X              X   XX ","    X   X   X   X     X     X     X","          XXXXX     XXXXX          "," X     X     X     X   X   X   X   "," XXX X   X    X  XX   X         X  "," XXX X   XX XXXX X XX XXXX     XX  "," XXX X   XX   XXXXXXX   XX   XX   X","XXXX X   XX   XXXXX X   XX   XXXXX "," XXX X   XX    X    X    X   X XXX ","XXXX X   XX   XX   XX   XX   XXXXX ","XXXXXX    X    XXX  X    X    XXXXX","XXXXXX    X    XXX  X    X    X    ","XXXXXX   XX    X    X  XXX   XXXXXX","X   XX   XX   XXXXXXX   XX   XX   X","XXXXX  X    X    X    X    X  XXXXX","XXXXX  X    X    X    X  X X   X   ","X   XX  X X X  XX   X X  X  X X   X","X    X    X    X    X    X    XXXXX","X   XXX XXX X XX   XX   XX   XX   X","XX  XXX  XX X XX X XX X XX  XXX  XX"," XXX X   XX   XX   XX   XX   X XXX ","XXXX X   XX   XXXXX X    X    X    "," XXX X   XX   XX   X XXX   X   XXXX","XXXX X   XX   XXXXX X   XX   XX   X"," XXX X   XX     XXX     XX   X XXX ","XXXXXX X X  X    X    X    X   XXX ","X   XX   XX   XX   XX   XX   X XXX ","X   XX   XX   XX   X X X  X X   X  ","X   XX   XX   XX   XX X XXX XXX   X","X   XX   X X X   X   X X X   XX   X","X   XX   X X X   X    X    X    X  ","XXXXXX   X   X   X   X   X   XXXXXX","  XX   X    X    X    X    X    XX ","X    X     X     X     X     X    X"," XX    X    X    X    X    X   XX  ","  X   X X X   X                    ","                              XXXXX","      X     X                      ","      XXX    X  XXX  X X  XXXX     ","      X    X    XXX  X X  XXX      ","                XXX  X    XXX      ","        X    X  XXX  X X  XXX      ","      XXX  X X  XXX  X    XXX      ","   XX  X   XXX   X    X   XXX      ","      XXX  X X  XXX    X  XXX      ","      X    X    XXX  X X  X X      ","  X        XX    X    X   XXX      ","  X       XXX    X  X X   X        ","      X    X    X X  XX   X X      ","      XX    X    X    X   XXX      ","               XXXXXX X XX X X     ","                XXX  X X  X X      ","                XXX  X X  XXX      ","      XX   X X  XX   X    X        ","       XXX X X   XX    X    X      ","      X X  XX X X    X    X        ","       XX  X     X     X  XX       ","  X   XXXX  X    X    X    XXX     ","      X X  X X  X X  X X  XXX      ","      X X  X X  X X   X    X       ","               X X XX X X XXXX     ","           X X   X   X X  X X      ","      X X   XX    X    X   X       ","      XXX    X   X   X    XXX      ","   X   X    X   X     X    X     X ","  X    X    X    X    X    X    X  "," X     X    X     X   X    X   X   ","           X   X X X   X           ","                                   ","  XXX X  XXXXX X    XXX   X  X  XXX","                 X                 ","               XXXXX               ","                                   ","                              XXXXX","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","                                   ","       X         X    X    X       ","  X    XX  X  X X    X  X  XX   X  ","  XX  XX X X   XXXX  X    X   XXXXX","      X X   X   X X                ","X   XX   X X X XXXXX  X  XXXXX  X  ","  X    X    X         X    X    X  "," XXXXX   X X   X X   X X X X XXXXX ","      X X                          "," XXX X X XXX XXXX  XXX XXX X X XXX "," XXX    X  XXX  X X  XXX       XXX ","           X  XX  X  X  X          ","          XXXXX    X               ","                                   "," XXX XXX XXX XXXXX XXX XXXX XX XXX ","      XXX                          "," X   X X   X                       ","       X   XXX   X        XXX      "," XX  X  X   X   X   XXXX           "," XX     X   X     X  XX            ","  X   X                            ","     XX X  X X  XXX  X  X X        ","      XXXXXXX X XX X  X X  X X  X X","            X   XXX   X            ","                       X  X  X  XX ","  XX  X X    X  XXXX               ","       X   X X   X        XXX      ","               X  X  X  XX  X      ","X  X X X   X   X  XX  X X  XXX    X","     X  X X XX  X  XX  X   X    XXX","XX    X   XX  X X X XXX X X XXX   X","       X         X   XX   X    XXX ","XX     XX       XXX X   XXXXXXX   X","   XX XX        XXX X   XXXXXXX   X","  X   X X       XXX X   XXXXXXX   X","      X X X X   XXX X   XXXXXXX   X","      X X       XXX X   XXXXXXX   X","       X        XXX X   XXXXXXX   X","   XX  X    X   XXXX X X X  X X  XX"," XXX X   XX    X   X XXX    X   XX "];
+var global_font_w = 5;
+var global_font_h = 7;
 
 function setup() {
   createCanvas(Math.floor(7.214 * WIDTH), 15 * HEIGHT);
@@ -398,6 +402,12 @@ function MainLoop() {
       placetextbuffer(textbuffer);
       //videocall();
       proto_render(video);
+      videold = video;
+    }else if(videomode === "buffer_fontstack" && video !== videold){
+      video = clrvideo;
+      placetextbuffer(textbuffer);
+      //videocall();
+      proto_render_fontstack(video);
       videold = video;
     }
     //}
@@ -960,6 +970,13 @@ function proto_render() {
   setdocall(video);
 }
 
+function proto_render_fontstack() {
+  //console.log(v);
+  background(backgroundcol);
+  videocall();
+  renderVideo_byFont(video);
+}
+
 function brtochar(t) {
   //ranged 0 to 255
   var out = " ";
@@ -1057,6 +1074,39 @@ function schf_sweep(){
         }
     }
     set_sysvar("schf_list",T);
+}
+
+function renderVideo_byFont(v){
+  //assumes w,h=WIDTH,HEIGHT
+  for(var i=0;i<WIDTH;i++){
+    for(var j=0;j<HEIGHT;j++){
+      renderChar(v.charAt(j*WIDTH+i),i*(width/WIDTH),j*(height/HEIGHT),width/WIDTH,height/HEIGHT);
+    }
+  }
+}
+
+function renderChar(chr,x,y,w,h){
+    fill(255);
+    noStroke();
+    var chc = chr.charCodeAt(0);
+    var rw = 1/global_font_w;
+    var rh = 1/global_font_h;
+    if(chc<global_font.length){
+        for(var i=0;i<global_font_w;i++){
+            for(var j=0;j<global_font_h;j++){
+                if(global_font[chc].charAt(j*global_font_w+i)==="X"){
+                    rect(x+(i*w*rw),y+(j*h*rh),w*rw,h*rh);
+                }else{
+
+                }
+            }
+        }
+    }else{
+        fill(255,0,0);
+        rect(x+(0*w*rw),y+(0*h*rh),w*rw,h*rh);
+        fill(0,255,0);
+        rect(x+(2*w*rw),y+(4*h*rh),w*rw,h*rh);
+    }
 }
 
 function exception_schf_nolist(){
