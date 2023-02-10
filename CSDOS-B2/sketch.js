@@ -21,14 +21,14 @@ var files = [
   ["boot/autoexec.sh", "rjef /quickalias/setup.ef\nejs set_sysvar(\"AEBOOT_DISPSPLASH\",true);set_sysvar(\"AEBOOT_SPLASHTIME\",4);set_sysvar(\"AEBOOT_SPLASHALLESC\",false);set_sysvar(\"CMD_HISTORY\",[]);\nejs mainret=\"rjef /bin/schf\"\nalias 2t2 $ /bin/2t2.ef\n"],
   [
     "boot/autoexec.ef",
-    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.523 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";if(get_sysvar(\"AEBOOT_DISPSPLASH\")){if(get_sysvar(\"AEBOOT_SPLASHALLESC\")){processcmd(\"rjef /bin/displaypxt.ef /info/splash.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\"))}else{processcmd(\"rjef /bin/displaypxt.ef /info/splash41.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\")+\" -l\")}};',
+    'console.log(\'AE UNCHANGED\');runcmdscript("boot/autoexec.sh");textbufferpre="CSDOS b0.523 -- Copy for development, press and test use only\\nBeta version, do not distribute. \\n\\nPlease use the help command if required and available\\n";if(get_sysvar(\"AEBOOT_DISPSPLASH\")){if(get_sysvar(\"AEBOOT_SPLASHALLESC\")){processcmd(\"rjef /bin/displaypxt.ef /info/splash.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\"))}else{processcmd(\"rjef /bin/displaypxt.ef /info/splash41.pxt -t \"+get_sysvar(\"AEBOOT_SPLASHTIME\")+\" -l\")}};disableScroll();',
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.523 -- development build 42, not for public use",
+    "CSDOS b0.523 -- development build 43, not for public use",
   ],
   ["/info/updates.txt","CSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.521 Development Build 38:\n  Created global-font system for rendering video. \n\nCSDOS Beta Version 0.522 Development Build 39:\n  Added bfc-asm.ef and bfc-clr.ef tools for compilation to brainf. \n  Added make-bfc-clr-comp-bac.ef tool. \n\nCSDOS Beta Version 0.5221 Development Build 40:\n  Added 2t2.ef updated text tool. (legacy text command still available)\n\nCSDOS Beta Version 0.5221 Development Build 40:\n  Added 2t2.ef updated text tool. (legacy text command still available)\n\nCSDOS Beta Version 0.5221 Development Build 41:\n  Minor updates. \n\nCSDOS Beta Version 0.523 Development Build 42:\n  Implemented history scrolling in command shell. \n  Changed font in fontstack. \n"],
-  ["/info/updateshistory.txt","\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n\nCSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.521 Development Build 38:\n  Created global-font system for rendering video. \n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.522 Development Build 39:\n  Added bfc-asm.ef and bfc-clr.ef tools for compilation to brainf. \n  Added make-bfc-clr-comp-bac.ef tool. \n\nCSDOS Beta Version 0.5221 Development Build 40:\n  Added 2t2.ef updated text tool. (legacy text command still available)\n\nCSDOS Beta Version 0.5221 Development Build 41:\n  Minor updates. \n\nCSDOS Beta Version 0.523 Development Build 42:\n  Implemented history scrolling in command shell. \n  Changed font in fontstack. \n"],
+  ["/info/updateshistory.txt","\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n\nCSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.521 Development Build 38:\n  Created global-font system for rendering video. \n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.522 Development Build 39:\n  Added bfc-asm.ef and bfc-clr.ef tools for compilation to brainf. \n  Added make-bfc-clr-comp-bac.ef tool. \n\nCSDOS Beta Version 0.5221 Development Build 40:\n  Added 2t2.ef updated text tool. (legacy text command still available)\n\nCSDOS Beta Version 0.5221 Development Build 41:\n  Minor updates. \n\nCSDOS Beta Version 0.523 Development Build 42:\n  Implemented history scrolling in command shell. \n  Changed font in fontstack. \n\nCSDOS Beta Version 0.523 Development Build 43:\n  Minor updates. \n"],
   [
     "/bin/aliaslist.dat",
     ';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!;text:!rjef /bin/text.ef!;drawtest:!ejs retcmd="rjef /drawtest.ef"!;mvinpt:!rjef /bin/mvinpt.ef!;loadoutput:!rjef /bin/loadoutput.ef!;verinfo:!cat /info/updates.txt!;paint:!rjef /bin/paint.ef!;jsh:!rjef /bin/jsh.ef!;brainf-int:!rjef /bin/brainf/brainf-int.ef!;brainf-int-gui:!rjef /bin/brainf/brainf-int-gui.ef!;brainf-int-load:!rjef /bin/brainf/brainf-int-load.ef!',
@@ -648,6 +648,10 @@ function processcmd(inpt) {
   }
 }
 
+function EVAL_IH(str){
+  return eval(str);
+}
+
 function attralias(cmdinpt) {
   // ["alof arg1 arg2"]
   var f = retfile("/bin/aliaslist.dat");
@@ -1109,6 +1113,21 @@ function renderChar(chr,x,y,w,h){
         fill(0,255,0);
         rect(x+(2*w*rw),y+(4*h*rh),w*rw,h*rh);
     }
+}
+
+function disableScroll() {
+    // Get the current page scroll position
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+  
+        // if any scroll is attempted, set this to the previous value
+        window.onscroll = function() {
+            window.scrollTo(scrollLeft, scrollTop);
+        };
+}
+  
+function enableScroll() {
+    window.onscroll = function() {};
 }
 
 function exception_schf_nolist(){
