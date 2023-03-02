@@ -25,10 +25,10 @@ var files = [
   ],
   [
     "/bin/version.dat",
-    "CSDOS b0.5241 -- development build 46, not for public use",
+    "CSDOS b0.5241 -- development build 47, not for public use",
   ],
-  ["/info/updates.txt","CSDOS Beta Version 0.522 Development Build 39:\n  Added bfc-asm.ef and bfc-clr.ef tools for compilation to brainf. \n  Added make-bfc-clr-comp-bac.ef tool. \n\nCSDOS Beta Version 0.5221 Development Build 40:\n  Added 2t2.ef updated text tool. (legacy text command still available)\n\nCSDOS Beta Version 0.5221 Development Build 40:\n  Added 2t2.ef updated text tool. (legacy text command still available)\n\nCSDOS Beta Version 0.5221 Development Build 41:\n  Minor updates. \n\nCSDOS Beta Version 0.523 Development Build 42:\n  Implemented history scrolling in command shell. \n  Changed font in fontstack. \n\nCSDOS Beta Version 0.524 Development Build 44:\n  Added hex editor (hexedit.ef) and hex alias. \n\nCSDOS Beta Version 0.5241 Development Build 45:\n  Began in-branch development of internal CBC Virtual Machine. \n  Added cbcmgr.ef to /bin/ folder. \n\nCSDOS Beta Version 0.5241 Development Build 46:\n  Minor updates. \n"],
-  ["/info/updateshistory.txt","\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n\nCSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.521 Development Build 38:\n  Created global-font system for rendering video. \n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.522 Development Build 39:\n  Added bfc-asm.ef and bfc-clr.ef tools for compilation to brainf. \n  Added make-bfc-clr-comp-bac.ef tool. \n\nCSDOS Beta Version 0.5221 Development Build 40:\n  Added 2t2.ef updated text tool. (legacy text command still available)\n\nCSDOS Beta Version 0.5221 Development Build 41:\n  Minor updates. \n\nCSDOS Beta Version 0.523 Development Build 42:\n  Implemented history scrolling in command shell. \n  Changed font in fontstack. \n\nCSDOS Beta Version 0.523 Development Build 43:\n  Minor updates. \n\nCSDOS Beta Version 0.524 Development Build 44:\n  Added hex editor (hexedit.ef) and hex alias. \n\nCSDOS Beta Version 0.5241 Development Build 45:\n  Began in-branch development of internal CBC Virtual Machine. \n  Added cbcmgr.ef to /bin/ folder. \n\nCSDOS Beta Version 0.5241 Development Build 46:\n  Minor updates. \n"],
+  ["/info/updates.txt","CSDOS Beta Version 0.5221 Development Build 40:\n  Added 2t2.ef updated text tool. (legacy text command still available)\n\nCSDOS Beta Version 0.5221 Development Build 40:\n  Added 2t2.ef updated text tool. (legacy text command still available)\n\nCSDOS Beta Version 0.5221 Development Build 41:\n  Minor updates. \n\nCSDOS Beta Version 0.523 Development Build 42:\n  Implemented history scrolling in command shell. \n  Changed font in fontstack. \n\nCSDOS Beta Version 0.524 Development Build 44:\n  Added hex editor (hexedit.ef) and hex alias. \n\nCSDOS Beta Version 0.5241 Development Build 45:\n  Began in-branch development of internal CBC Virtual Machine. \n  Added cbcmgr.ef to /bin/ folder. \n\nCSDOS Beta Version 0.5241 Development Build 46:\n  Minor updates. \n\nCSDOS Beta Version 0.5241 Development Build 47:\n  Added color input to fontstack char method. \n"],
+  ["/info/updateshistory.txt","\nCSDOS Beta Version 0.48 Development Build 22:\n  Made major optimizations to brainf-int\n\nCSDOS Beta Version 0.49 Development Build 23:\n  Added /bin/paint.ef program\n\nCSDOS Beta Version 0.49 Development Build 24:\n  Made minor changes including fixing double backspacing problems\n  Added paint alias\n\nCSDOS Beta Version 0.49 Development Build 25:\n  Added splash screen\n  Added /bin/makeclrpxt.ef\n\nCSDOS Beta Version 0.491 Development Build 26:\n  Made minor changes and additions\n\nCSDOS Beta Version 0.4911 Development Build 27:\n  Changed how video function is handled slightly for future included features\n\nCSDOS Beta Version 0.4912 Development Build 28:\n  Added /bin/folderpkg.ef and /bin/folderunpkg.ef\n\nCSDOS Beta Version 0.492 Development Build 29:\n  Added /bin/schf for scheduling multitasker capabilities\n\nCSDOS Beta Version 0.49201 Development Build 30:\n  Made minor modifications to command shell program for scheduler\n\nCSDOS Beta Version 0.49201 Development Build 31:\n  Added check to not place files with no name\n\nCSDOS Beta Version 0.5 Development Build 32:\n  Created .UEF standard and API functions (Universal Executable File)\n\nCSDOS Beta Version 0.51 Development Build 33:\n  Added exception protocals to keep scheduler from crashing system when no programs are scheduled in task list\n\nCSDOS Beta Version 0.51 Development Build 34:\n  Changed note in repair_schf_noprogram exception screen\n\nCSDOS Beta Version 0.51 Development Build 35:\n  Added /bin/list_tasks.ef\n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.521 Development Build 38:\n  Created global-font system for rendering video. \n\nCSDOS Beta Version 0.51 Development Build 36:\n  Added exception safety measures\n\nCSDOS Beta Version 0.52 Development Build 37:\n  Made minor modifications to keep scheduler from crashing machine\n\nCSDOS Beta Version 0.522 Development Build 39:\n  Added bfc-asm.ef and bfc-clr.ef tools for compilation to brainf. \n  Added make-bfc-clr-comp-bac.ef tool. \n\nCSDOS Beta Version 0.5221 Development Build 40:\n  Added 2t2.ef updated text tool. (legacy text command still available)\n\nCSDOS Beta Version 0.5221 Development Build 41:\n  Minor updates. \n\nCSDOS Beta Version 0.523 Development Build 42:\n  Implemented history scrolling in command shell. \n  Changed font in fontstack. \n\nCSDOS Beta Version 0.523 Development Build 43:\n  Minor updates. \n\nCSDOS Beta Version 0.524 Development Build 44:\n  Added hex editor (hexedit.ef) and hex alias. \n\nCSDOS Beta Version 0.5241 Development Build 45:\n  Began in-branch development of internal CBC Virtual Machine. \n  Added cbcmgr.ef to /bin/ folder. \n\nCSDOS Beta Version 0.5241 Development Build 46:\n  Minor updates. \n\nCSDOS Beta Version 0.5241 Development Build 47:\n  Added color input to fontstack char method. \n"],
   [
     "/bin/aliaslist.dat",
     ';ls:!lsdir!;test1:!clr!;test2:!rjef /bin/bac /bin/test.sh!;$:!rjef!;#:!rjef /bin/bac!;alof:!rjef /bin/alof.ef!;catof:!rjef /bin/catof.ef!;text:!rjef /bin/text.ef!;drawtest:!ejs retcmd="rjef /drawtest.ef"!;mvinpt:!rjef /bin/mvinpt.ef!;loadoutput:!rjef /bin/loadoutput.ef!;verinfo:!cat /info/updates.txt!;paint:!rjef /bin/paint.ef!;jsh:!rjef /bin/jsh.ef!;brainf-int:!rjef /bin/brainf/brainf-int.ef!;brainf-int-gui:!rjef /bin/brainf/brainf-int-gui.ef!;brainf-int-load:!rjef /bin/brainf/brainf-int-load.ef!;dev-func-ab:!$ /bin/copy.ef /bin/eebckdcall /bin/backgroundcall.dat!;dev-func-revert:!$ /bin/copy.ef /bin/blankbckdcall /bin/backgroundcall.dat!',
@@ -1045,7 +1045,7 @@ function proto_render_fontstack() {
   //background(backgroundcol);
   background_call();
   videocall();
-  renderVideo_byFont(video);
+  renderVideo_byFont(video,textcol);
 }
 
 function background_call(){
@@ -1159,17 +1159,17 @@ function schf_sweep(){
     set_sysvar("schf_list",T);
 }
 
-function renderVideo_byFont(v){
+function renderVideo_byFont(v,c){
   //assumes w,h=WIDTH,HEIGHT
   for(var i=0;i<WIDTH;i++){
     for(var j=0;j<HEIGHT;j++){
-      renderChar(v.charAt(j*WIDTH+i),i*(width/WIDTH),j*(height/HEIGHT),width/WIDTH,height/HEIGHT);
+      renderChar(v.charAt(j*WIDTH+i),i*(width/WIDTH),j*(height/HEIGHT),width/WIDTH,height/HEIGHT,c);
     }
   }
 }
 
-function renderChar(chr,x,y,w,h){
-    fill(255);
+function renderChar(chr,x,y,w,h,c){
+    fill(c);
     noStroke();
     var chc = chr.charCodeAt(0);
     var rw = 1/global_font_w;
@@ -1574,4 +1574,3 @@ function API_GETKEYINPT(){
 function API_SETKEYINPT(x){
   keyinput=x;
 }
-//abcdefg
