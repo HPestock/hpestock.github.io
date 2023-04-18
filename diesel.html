@@ -10,7 +10,10 @@
 document.getElementById("INS_SPACE").innerHTML += prompt("Insert HTML");
 
 function ch(){
-    document.getElementsByTagName("video")[0].playbackRate = prompt("Speed");
+    var t = parseFloat(prompt("Speed"));
+    document.getElementsByTagName("video")[0].playbackRate = t;
+    document.querySelectorAll("video").forEach(v => v.playBackRate = t);
+    alert(document.getElementsByTagName("video"[0]));
 }
 
 document.getElementById('button').onclick = function() {
